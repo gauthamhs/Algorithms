@@ -49,7 +49,7 @@ public class DeleteElementsMTimes {
 	public static void main(String[] args) {
 		List<Integer> integerArray1 = new ArrayList<>();
 		integerArray1.add(1);
-/*		integerArray1.add(1);
+		integerArray1.add(1);
 		integerArray1.add(1);
 		integerArray1.add(1);
 		integerArray1.add(2);
@@ -61,7 +61,7 @@ public class DeleteElementsMTimes {
 		integerArray1.add(4);
 		integerArray1.add(4);
 		integerArray1.add(4);
-*/
+
 		int m = 10;
 		List<Integer> uniqueArray1 = deleteElementsThatRepeatMTimes(integerArray1, m);
 		System.out.println(printArray(uniqueArray1));
