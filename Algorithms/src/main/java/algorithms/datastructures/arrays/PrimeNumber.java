@@ -49,7 +49,7 @@ public class PrimeNumber {
 		
 		
 		// Just check for odd values
-		for(int i = 3; i<=n;i++) {
+		for(int i = 3; (i*i)<=n;i++) {
 			if(n%i==0) {
 				return false;
 			}
@@ -60,7 +60,7 @@ public class PrimeNumber {
 	
 	
 	public static void main(String[] args) {
-		int number = 65;
+		int number = 35;
 		boolean isPrimeNumber = isPrimeMostEfficient(number);
 		System.out.println(isPrimeNumber);
 		
