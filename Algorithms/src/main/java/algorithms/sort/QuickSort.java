@@ -1,5 +1,7 @@
 package algorithms.sort;
 
+import java.util.Collections;
+
 /*Quick Sort:
 
 Quicksort(also known as partition-exchange sort) is a highly efficient sorting algorithm that 
@@ -29,7 +31,7 @@ Note the elements on the left or right side are not sorted in any particular ord
 public class QuickSort {
 	
 	public int[] quickSort(int[] arrayOfIntegers, int firstIndex, int lastIndex){
-		
+
 		if(firstIndex>=lastIndex){
 			return arrayOfIntegers;
 		}else{
@@ -58,10 +60,10 @@ public class QuickSort {
 				i++;
 			}
 		}
-		temp = arrayOfIntegers[i];
-		arrayOfIntegers[i] = pivot;
-		pivot = temp;
-		arrayOfIntegers[lastIndex] = pivot;
+		temp = arrayOfIntegers[i]; // Storing the value at i
+		arrayOfIntegers[i] = pivot; // Adding the pivot value at A[i]
+/*		pivot = temp;*/
+		arrayOfIntegers[lastIndex] = temp; // Adding the a[i] stored in temp to the last index.
 		
 		return i;	
 			

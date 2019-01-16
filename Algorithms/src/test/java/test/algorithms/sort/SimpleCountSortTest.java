@@ -30,5 +30,14 @@ public class SimpleCountSortTest {
 		int[] sortedArray = simpleCountSort.simpleSort(arrayOfIntegers);
 		System.out.println(printArray(sortedArray));
 	}
+	
+	@Test
+	public void testSimpleSort4Values() {
+		int[] arrayOfIntegers = {1,2,2,1,2,3,1,2,3,4,4,4,1,2,3,3,3,3,1,1,1,1,3,3,4,2,3,1,2};
+		int[] sortedArray = simpleCountSort.simpleSort4Count(arrayOfIntegers);
+		System.out.println(printArray(sortedArray));
+	}
+	
+	
 
 }

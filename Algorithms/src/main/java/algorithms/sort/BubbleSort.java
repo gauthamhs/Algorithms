@@ -38,8 +38,8 @@ public class BubbleSort {
 	}
 	
 /*	Implementation 2: This is a better implementation of the Classic Bubble Sort. Since we know that
-	the highest element would be "Bubbled" to the top of the list, we need to only sort elements that
-	precedes it thereby decreasing the no of iterations and swappings.
+	the highest element would be "Bubbled" to the top of the list, we need to only sort elements in the unsorted array
+	that precedes it  thereby decreasing the no of iterations and swappings.
 	 */
 	
 	public int[] betterBubbleSort(int[] arrayOfIntegers){

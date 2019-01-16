@@ -46,7 +46,7 @@ public void testTotalNoOfOccurrences(){
 
 @Test
 public void testCountingSort(){
-int[] arrayOfIntegers = {4,1,5,0,1,6,5,1,5,3};
+int[] arrayOfIntegers = {4,1,5,1,6,5,1,5,3};
 int maxVal = findMax(arrayOfIntegers);
 System.out.println(printArray(arrayOfIntegers));
 int[] countArray = countingSort.countOccurrences(arrayOfIntegers, maxVal);
