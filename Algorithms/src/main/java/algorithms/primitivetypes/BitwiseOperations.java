@@ -95,17 +95,19 @@ public class BitwiseOperations {
 	/*Reverse Bits: Reverse bits with O(n) complexity. 
 	 * Like (0010) reverses to (0100)
 	 * */
-	public int reverseBits(int value) {
-		int reversedNumber = 0;
-		while(value > 0) {
-			reversedNumber<<=1;
-			if((value & 1) == 1) {
-				reversedNumber ^= 1;
-			}
-			value>>=1;
-		}
-		return reversedNumber;
-	}
+	 public int reverseBits(int n) {
+	        int result = 0;
+	        int mask = 1;
+	        for (int i = 0; i < 32; i ++) {
+	            int digit = n & mask;
+	            result = (result << 1);
+	            if (digit != 0) {
+	                 result = result + 1;
+	            }
+	            mask = (mask << 1);
+	        }
+	        return result;
+	    }
 	
 /*	Find Closest integer with same weight(traverses forwards and backwards): 
  * For example. If we type in an integer 6 (110), it would return 5( 101) since that is the closest integer to 6 and has

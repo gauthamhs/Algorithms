@@ -34,8 +34,7 @@ public class CanJump {
 				return true;
 			}
 		}
-		
-		
+			
 		return false;
 		
 	}

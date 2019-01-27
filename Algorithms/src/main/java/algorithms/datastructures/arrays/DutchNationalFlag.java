@@ -66,15 +66,18 @@ public class DutchNationalFlag {
 		List<COLOR> sortedList = dutchNationalFlag.dutchNationalFlagSort(colors, pivot);
 		System.out.println(pivot);
 		
-		System.out.println(dutchNationalFlag.printArray(sortedList));
+		System.out.println(printArray(sortedList));
 	}
 	
-	public String printArray(List<COLOR> sortedList){
+
+	public static String printArray(List<COLOR> sortedList){
 
 		StringBuilder sb = new StringBuilder("");
-		System.out.println(sortedList.size());
-		for(COLOR i: sortedList){
-		sb.append(i.getValue());
+		for(int i = 0;i<=sortedList.size()-1;i++){
+		sb.append(sortedList.get(i));
+		if(i<sortedList.size() - 1){
+		sb.append(", ");
+		}
 		}
 		return sb.toString();
 

@@ -71,11 +71,14 @@ public class ApplyPermutation {
 		System.out.println(printArray(permutatedArray2));
 	}
 	
-	public static String printArray(List<Integer> sortedList){
+	public static String printArray(List<Integer> arrayOfIntegers){
 
 		StringBuilder sb = new StringBuilder("");
-		for(Integer i: sortedList){
-		sb.append(i +", ");
+		for(int i = 0;i<=arrayOfIntegers.size()-1;i++){
+		sb.append(arrayOfIntegers.get(i));
+		if(i<arrayOfIntegers.size() - 1){
+		sb.append(", ");
+		}
 		}
 		return sb.toString();
 

@@ -1,5 +1,6 @@
 package algorithms.general;
 
+
 public class RectangleOverlap {
 	
 	public boolean isValueInRange(int value, int min, int max) {

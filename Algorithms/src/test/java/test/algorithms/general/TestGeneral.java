@@ -14,14 +14,15 @@ public class TestGeneral {
 	@Before
 	public void setup(){
 	rectangleOverlap = new RectangleOverlap();
+	
 	}
 
 	@Test
 	public void testRectangleOverlapSuccess() {
+		
 		Rectangle r1 = new Rectangle(1, 2, 4, 3);
 		Rectangle r2 = new Rectangle(3,1, 2, 2);
 		Rectangle intersectingRectangle = rectangleOverlap.intersectingRectangle(r1, r2);
-		
 		
 		boolean isRectangleOverlap = rectangleOverlap.isRectangleOverlap(r1, r2);
 		System.out.println("Are the two rectangles Overlapping?: " + isRectangleOverlap);
