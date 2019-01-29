@@ -1,5 +1,8 @@
 package algorithms.datastructures.linkedlist;
 
+import java.util.HashSet;
+import java.util.Set;
+
 /*Implementation of all functionalities of a linkedList
 */
 
@@ -211,7 +214,7 @@ public class SinglyLinkedListImpl implements SinglyLinkedList {
 		Node dummyHead = new Node(0, node);
 		Node KthNode = dummyHead;
 		Node lastNode = dummyHead.nextNode;
-		while(k>=0 && lastNode!=null) {
+		while(k>0 && lastNode!=null) {
 			lastNode = lastNode.nextNode;
 			k--;
 		}
@@ -226,7 +229,7 @@ public class SinglyLinkedListImpl implements SinglyLinkedList {
 	}
 	
 	@Override
-	public Node deleteDuplicates(Node node) {
+	public Node deleteDuplicatesSortedArray(Node node) {
 		Node dummyHead = new Node(0, node);
 		Node currentNode = dummyHead;
 		while(currentNode!=null ) {
@@ -239,6 +242,30 @@ public class SinglyLinkedListImpl implements SinglyLinkedList {
 		}
 		return dummyHead.nextNode;
 	}
+	
+	@Override
+	public Node deleteDuplicatesUnsortedArray(Node node) {
+		Node dummyHead = new Node(0, node);
+		Node currentNode = dummyHead.nextNode;
+		Node previousNode = null;
+		
+		Set<Integer> numberSet = new HashSet<>();
+		
+		while(currentNode!=null) {
+			int data = (int) currentNode.data;
+			if(numberSet.contains(data)) {
+				previousNode.nextNode = currentNode.nextNode;
+			} else { 
+				numberSet.add(data);
+				previousNode =currentNode;
+			}
+			currentNode = currentNode.nextNode;
+		}
+		return dummyHead.nextNode;
+		
+	}
+	
+	
 	
 	@Override
 	public Node rotateLinkedListRight(Node node, int rotateBy) {
@@ -435,7 +462,7 @@ public class SinglyLinkedListImpl implements SinglyLinkedList {
 	}
 
 	@Override
-	public Node findKthToLastElement(int k) {
+	public Node findKthToLastElementHard(int k) {
 		Node findKthToLast = this.head;
 		int length = lengthOfList();
 		if(findKthToLast==null || k>=length || k<0) {
@@ -444,6 +471,24 @@ public class SinglyLinkedListImpl implements SinglyLinkedList {
 			findKthToLast = findNodeAtIndex(length-1-k);
 		}
 		return findKthToLast;
+	}
+	
+	@Override
+	public Node findKthToLastElementEasy(Node node,int k) {
+		Node dummyHead = new Node(0, node);
+		Node currentNode = dummyHead.nextNode;
+		Node lastNode = currentNode;
+		while(k>1) {
+			lastNode = lastNode.nextNode;
+			k--;
+		}
+		
+		while(lastNode.nextNode!=null) {
+			currentNode = currentNode.nextNode;
+			lastNode = lastNode.nextNode;
+		}
+		
+		return currentNode;
 	}
 
 	
@@ -470,7 +515,7 @@ public class SinglyLinkedListImpl implements SinglyLinkedList {
 		Node dummyHead = new Node(0);
 		Node currentNode = dummyHead;
 		while(list1!=null && list2!=null) {
-			if((int)list1.data<(int)list2.data) {
+			if((int)list1.data<=(int)list2.data) {
 				currentNode.nextNode = list1;
 				list1 = list1.nextNode;
 			} else {
@@ -607,7 +652,7 @@ public class SinglyLinkedListImpl implements SinglyLinkedList {
 	}
 	
 	@Override
-	public Node ListPivot(Node list, int pivot) {
+	public Node listPivot(Node list, int pivot) {
 		Node lesserDummyHead = new Node(0);
 		Node equalDummyHead = new Node(0);
 		Node greaterDummyHead = new Node(0);
@@ -638,6 +683,51 @@ public class SinglyLinkedListImpl implements SinglyLinkedList {
 		
 		return lesserDummyHead.nextNode;
 	}
+	
+	@Override
+	public Node swapNodesPairwise(Node node) {
+		Node dummyHead = new Node(0, node);
+		Node currentNode = dummyHead.nextNode;
+		Node dummyNextNode = currentNode.nextNode;
+		Node storeNode = null;
+		while(true) {
+			 Node nextNode = currentNode.nextNode;
+			storeNode = nextNode.nextNode;
+			nextNode.nextNode = currentNode;
+			if(storeNode == null || storeNode.nextNode ==null) {
+				currentNode.nextNode = storeNode;
+				break;
+			}
+			currentNode.nextNode = storeNode.nextNode;
+			currentNode = storeNode;
+			
+		}
+		
+		return dummyNextNode;
+	}
+	
+	@Override
+	public Node addTwoNumbers(Node list1, Node list2){
+		Node dummyHead = new Node(0);
+		Node currentNode = dummyHead;
+		int carry = 0;
+		int remainder = 0;
+	
+		while(list1!=null || list2!=null || carry!=0) {
+			int list1Data = (list1!=null) ? (int)list1.data : 0;
+			int list2Data = (list2!=null) ? (int)list2.data : 0;
+			int value = carry + list1Data + list2Data;
+			remainder = value%10;
+			carry = value/10;
+			currentNode.nextNode = new Node(remainder);
+			list1 = (list1!=null) ? list1.nextNode:null;
+			list2 = (list2!=null) ? list2.nextNode:null;
+			currentNode = currentNode.nextNode;
+		}
+		
+		return dummyHead.nextNode;
+	}
+
 	
 	@Override
 	public String toString() {

@@ -17,7 +17,8 @@ public interface SinglyLinkedList {
 	public Node findNodeAtIndex(int index);
 	public Node findMaximum();
 	public Node findMinimum();
-	public Node findKthToLastElement(int k);
+	public Node findKthToLastElementHard(int k);
+	public Node findKthToLastElementEasy(Node node, int k);
 	
 	
 	/*Insert Operations*/
@@ -38,7 +39,8 @@ public interface SinglyLinkedList {
 	public void deleteAtIndex(int index);
 	public void deleteKthNodeTwoTraversal(int k);
 	public Node deleteKthNodeSingleTraversal(Node node, int k);
-	public Node deleteDuplicates(Node node);
+	public Node deleteDuplicatesSortedArray(Node node);
+	public Node deleteDuplicatesUnsortedArray(Node node);
 	
 	/*Rotate Operations*/
 	
@@ -56,7 +58,9 @@ public interface SinglyLinkedList {
 	public Node hasCycle(Node head);
 	public Node hasOverlappingListCycleFree(Node list1, Node list2);
 	public Node evenOddMerge(Node list);
-	public Node ListPivot(Node list, int pivot);
+	public Node listPivot(Node list, int pivot);
+	public Node swapNodesPairwise(Node node);
+	public Node addTwoNumbers(Node list1, Node list2);
 	
 }
 

@@ -81,8 +81,11 @@ public class TestLinkedList {
 		Node findAtIndex =  linkedList.findNodeAtIndex(2);
 		System.out.println("Node at Index 2: " + findAtIndex);
 		
-		Node findKthfromLast = linkedList.findKthToLastElement(2);
-		System.out.println("Element 3 from last: " + findKthfromLast);
+		Node findKthfromLast = linkedList.findKthToLastElementHard(0);
+		System.out.println("Element 1 from last: " + findKthfromLast);
+		
+		Node findKthfromLastEasy = linkedList.findKthToLastElementEasy(linkedList.head, 2);
+		System.out.println("Element 2 from last: " + findKthfromLastEasy);
 			
 	}
 	
@@ -102,7 +105,20 @@ public class TestLinkedList {
 		int[] nodes = {20, 50, 50 ,120, 120, 180, 200, 200};
 		SinglyLinkedListImpl linkedList = new SinglyLinkedListImpl().addAll(nodes);
 		System.out.println("Duplicate List: " + linkedList);
-		Node uniqueNode = linkedList.deleteDuplicates(linkedList.head);
+		Node uniqueNode = linkedList.deleteDuplicatesSortedArray(linkedList.head);
+		
+		SinglyLinkedListImpl uniqueList = new SinglyLinkedListImpl();
+		uniqueList.insertAtHead(uniqueNode);
+		System.out.println("Distinct List: " + uniqueList);
+		
+	}
+	
+	@Test
+	public void testDeleteDuplicatesUnsortedArray() {
+		int[] nodes = {1,3,3,3,5,6,4,2,3,2,1,3,4,2,1,35,2,4,3,2,1,2};
+		SinglyLinkedListImpl linkedList = new SinglyLinkedListImpl().addAll(nodes);
+		System.out.println("Duplicate List: " + linkedList);
+		Node uniqueNode = linkedList.deleteDuplicatesUnsortedArray(linkedList.head);
 		
 		SinglyLinkedListImpl uniqueList = new SinglyLinkedListImpl();
 		uniqueList.insertAtHead(uniqueNode);
@@ -231,10 +247,40 @@ public class TestLinkedList {
 		SinglyLinkedListImpl linkedList = new SinglyLinkedListImpl().addAll(nodes);
 		
 		System.out.println("Original List: " + linkedList);
-		Node pivot = linkedListMain.ListPivot(linkedList.head, 5);
+		Node pivot = linkedListMain.listPivot(linkedList.head, 5);
 		SinglyLinkedListImpl pivotLinkedList = new SinglyLinkedListImpl();
 		pivotLinkedList.insertAtHead(pivot);
 		System.out.println("Pivot List: " + pivotLinkedList);
+		
+	}
+	
+	@Test
+	public void testSwapNodesPairwise() {
+		int[] nodes = {10, 20, 30, 40, 50};
+        SinglyLinkedListImpl linkedList = new SinglyLinkedListImpl().addAll(nodes);
+		
+		System.out.println("Original List: " + linkedList);
+		
+		Node swappedPairNode = linkedListMain.swapNodesPairwise(linkedList.head);
+		
+		SinglyLinkedListImpl swappedPairLinkedList = new SinglyLinkedListImpl();
+		swappedPairLinkedList.insertAtHead(swappedPairNode);
+		System.out.println("Swapped Pair List: " + swappedPairLinkedList);
+	}
+	
+	@Test
+	public void testAddTwoNumbers() {
+	
+		int[] nodes1 = {7, 8, 7};
+        SinglyLinkedListImpl linkedList1 = new SinglyLinkedListImpl().addAll(nodes1);
+        
+		int[] nodes2 = {2, 4, 9};
+        SinglyLinkedListImpl linkedList2 = new SinglyLinkedListImpl().addAll(nodes2);
+        
+        Node addNode = linkedListMain.addTwoNumbers(linkedList1.head, linkedList2.head);
+		SinglyLinkedListImpl addLinkedList = new SinglyLinkedListImpl();
+		addLinkedList.insertAtHead(addNode);
+		System.out.println("Addition of Two Nodes: " + addLinkedList);
 		
 	}
 	
