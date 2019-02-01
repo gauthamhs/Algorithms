@@ -95,13 +95,13 @@ public static Elements minNumberOfSteps(List<Integer> integerArray) {
 		List<Integer> arr = new ArrayList<>();
 		int i = intArr.size()-1;
 		
-		while(i>=0) {
-			arr.add(i);
-			if(i==0) {
-				break;
-			}
+		arr.add(i);
+		
+		while(i>0) {
+			arr.add(intArr.get(i));
 			i = intArr.get(i);
 		}
+		
 		Collections.reverse(arr);
 		
 		return  arr;
