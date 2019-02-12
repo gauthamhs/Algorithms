@@ -42,6 +42,7 @@ public class MajorityElement {
 		integerArray.add(3);
 		integerArray.add(3);
 		integerArray.add(3);
+		integerArray.add(3);
 		integerArray.add(5);
 		integerArray.add(5);
 		

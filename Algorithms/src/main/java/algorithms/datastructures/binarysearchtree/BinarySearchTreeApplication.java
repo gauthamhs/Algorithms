@@ -16,7 +16,7 @@ public class BinarySearchTreeApplication {
 		binarySearchTree.printInOrder(binarySearchTree.getRoot());
 		System.out.println();*/
 		
-/*		BinarySearchTreeImpl binarySearchTree2 = new BinarySearchTreeImpl();
+		BinarySearchTreeImpl binarySearchTree2 = new BinarySearchTreeImpl();
 		binarySearchTree2.insertNodeRecursive(50);
 		binarySearchTree2.insertNodeRecursive(40);
 		binarySearchTree2.insertNodeRecursive(62);
@@ -50,8 +50,8 @@ public class BinarySearchTreeApplication {
 		//System.out.println(binarySearchTree2.getLargest());
 		
 		//System.out.println(binarySearchTree2.leastCommonAncestor(binarySearchTree2.getRoot(), 54, 100));		
-		System.out.println(binarySearchTree2.breadthFirstSearch(root, 88));*/
-/*		System.out.println(binarySearchTree2.depthFirstSearch(root, 88));*/
+		System.out.println(binarySearchTree2.breadthFirstSearch(root, 88));
+		System.out.println(binarySearchTree2.depthFirstSearch(root, 88));
 	}
 	
 

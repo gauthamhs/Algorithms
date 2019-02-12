@@ -10,6 +10,7 @@ public class Palindrome {
 	public static boolean isPalindromeStringBuilder(String word) {
 		StringBuilder sb = new StringBuilder(word).reverse();
 		if(!word.equals(sb.toString())) {
+			
 			return false;
 		}
 		

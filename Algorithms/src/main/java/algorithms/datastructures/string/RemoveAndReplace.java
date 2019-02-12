@@ -22,7 +22,6 @@ public class RemoveAndReplace {
 		//Backward Iteration: Add d's in place of A's.
 		int currentIndex = writeIndex - 1;
 		writeIndex = writeIndex + aCount - 1;
-		final int finalSize = writeIndex + 1;
 		
 		while(currentIndex>=0) {
 			if(charList.get(currentIndex)=='a') {

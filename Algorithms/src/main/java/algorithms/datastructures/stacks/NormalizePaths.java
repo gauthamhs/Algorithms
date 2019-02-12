@@ -72,7 +72,7 @@ public class NormalizePaths {
 	
 	public static void main(String[] args) {
 		
-		String path = "../abc//..//bca//..//def//.//pbka";
+		String path = "../../abc//..//bca//..//def//.//pbka";
 		String pathVal = normalizePath(path);
 		System.out.println(pathVal);
 		

@@ -13,11 +13,11 @@ public class NextPermutation {
 	public static List<Integer> nextPermutation(List<Integer> permutationArray){
 		
 		int inversionPoint = permutationArray.size() - 2;
-		while(inversionPoint>=0 && permutationArray.get(inversionPoint)> permutationArray.get(inversionPoint + 1) ) {
+		while(inversionPoint>=0 && permutationArray.get(inversionPoint)>= permutationArray.get(inversionPoint + 1) ) {
 			inversionPoint--;
 		}
 		
-		// The array is already at its hightest permutation, return an empty array.
+		// The array is already at its highest permutation, return an empty array.
 		if(inversionPoint == - 1 ) {
 			return Collections.emptyList();
 		}

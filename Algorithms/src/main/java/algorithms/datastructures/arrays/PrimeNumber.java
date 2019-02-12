@@ -59,8 +59,9 @@ public class PrimeNumber {
 	}
 	
 	public static void main(String[] args) {
-		int number = 35;
-		boolean isPrimeNumber = isPrimeMostEfficient(number);
+		int number = 3;
+		boolean isPrimeNumber = isPrime(number);
+		//boolean isPrimeNumber = isPrimeMostEfficient(number);
 		System.out.println(isPrimeNumber);
 		
 	}

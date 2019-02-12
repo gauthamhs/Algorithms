@@ -13,7 +13,7 @@ public class CellList
      for(int i=0;i<length;i++) {
     	 cellList.set(i, states[i]);
      }
-     while(days-->0){
+     while(days--> 0){
     	 
     	cellList.set(0, 0^states[1]);
     	cellList.set(length-1, 0^states[length-2]);

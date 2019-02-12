@@ -1,6 +1,7 @@
 package algorithms.datastructures.arrays;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 
@@ -48,6 +49,21 @@ public class DeleteDuplicateFromSortedArray {
 		return integerArray.subList(0, j+1);
 	}
 	
+    public static int removeDuplicates(int[] nums) {
+        
+        int j = 0;
+        int lastIndex = nums.length - 1;
+        for(int i=0;i<nums.length-1;i++){
+            if(nums[i]!=nums[i+1]){
+               nums[j] = nums[i];
+                j++;
+            }
+            
+        }
+        nums[j] =  nums[lastIndex];
+        return Arrays.copyOfRange(nums,0,j+1).length;
+    }
+	
 	public static void main(String[] args) {
 		List<Integer> integerArray1 = new ArrayList<>();
 		integerArray1.add(0);
@@ -75,6 +91,12 @@ public class DeleteDuplicateFromSortedArray {
 		integerArray2.add(6);
 		integerArray2.add(6);
 		
+		int[] arraya= {1,2,3};
+		
+		int length = removeDuplicates(arraya);
+		System.out.println(length);
+		
+		
 		List<Integer> uniqueArray1 = deleteDuplicateElements1(integerArray1);
 		System.out.println(printArray(uniqueArray1));
 		
@@ -84,7 +106,26 @@ public class DeleteDuplicateFromSortedArray {
 		List<Integer> uniqueArray3 = deleteElementBasedOnKey(integerArray2, 2);
 		System.out.println(printArray(uniqueArray3));
 		
+		int[] nums = {3,2,2,3};
+		int val =3;
+		int lengths = removeElement(nums, val);
+		System.out.println(lengths);
+		
 		}
+	
+    public static int removeElement(int[] nums, int val) {
+        
+        int j = 0;
+        for(int i =0;i<nums.length;i++){
+            if(nums[i]!=val){
+                nums[j]=nums[i];
+                j++;
+            }
+        }
+        
+        nums = Arrays.copyOfRange(nums, 0, j);
+        return nums.length;
+    }
 	
 	public static String printArray(List<Integer> arrayOfIntegers){
 

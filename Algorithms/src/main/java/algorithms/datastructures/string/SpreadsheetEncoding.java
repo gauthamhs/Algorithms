@@ -42,7 +42,7 @@ public class SpreadsheetEncoding {
 		int spreadsheetEncodedValueA0 = spreadsheetEncodingA0(column);
 		System.out.println(spreadsheetEncodedValueA0);
 		
-		int decodeVal = 25135085;
+		int decodeVal = 28;
 		String stringVal = spreadsheetDecoding(decodeVal);
 		System.out.println(stringVal);
 	}

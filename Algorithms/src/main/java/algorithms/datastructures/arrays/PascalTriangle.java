@@ -17,14 +17,25 @@ public class PascalTriangle {
 			pascalTriangle.add(currentRow);
 		}
 		
-
 		return pascalTriangle;
 	}
 	
+	public static List<Integer> nthRowPascal(int row) {
+		List<Integer> pascalRow = new ArrayList<>();
+		pascalRow.set(0, 1);
+		for(int i=0;i<row;i++) {
+		pascalRow.add(pascalRow.get(i)*(row-i)/(i+1));	
+		}
+		
+		return pascalRow;
+	}
+	
 	public static void main(String[] args) {
-		int numOfRows = 7;
+		int numOfRows = 4;
 		List<List<Integer>> pascalTriangle = pascalTriangle(numOfRows);
 		System.out.println(pascalTriangle);
+		
+		System.out.println(nthRowPascal(numOfRows));
 		
 	}
 

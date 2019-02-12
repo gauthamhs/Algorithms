@@ -18,6 +18,7 @@ public class PhoneMnemonics {
 		 return mnemonics;
 	 }
 	 
+	 
 	 private static final String[] MAPPING = {"0", "1", "ABC", "DEF", "GHI", "JKL", "MNO",
 			                                  "PQRS","TUV","WXYZ"};
 	 
@@ -43,13 +44,13 @@ public class PhoneMnemonics {
 		 mnemonics.add("");
 		 
 		 for(int i=0;i<phoneNumber.length();i++) {
-			String letter = MAPPING[phoneNumber.charAt(i) -'0'];
+			String letters = MAPPING[phoneNumber.charAt(i) -'0'];
 			List<String> partialMnemonics = new ArrayList<>();
-			for(int j=0;j<letter.length();j++) {
+			for(int j=0;j<letters.length();j++) {
 				
-				for (String string : mnemonics) {
+				for (String pnemonic : mnemonics) {
 					StringBuilder sb = new StringBuilder();
-					sb.append(string).append(letter.charAt(j));
+					sb.append(pnemonic).append(letters.charAt(j));
 					partialMnemonics.add(sb.toString());
 				}	
 				}

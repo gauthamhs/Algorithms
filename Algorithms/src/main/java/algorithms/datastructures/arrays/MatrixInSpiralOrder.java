@@ -9,6 +9,7 @@ public class MatrixInSpiralOrder {
 		List<Integer> matrixInSpiral = new ArrayList<>();
 		int x = 0, y=0, direction = 0;
 		int[][] SHIFT = {{0,1},{1,0},{0,-1},{-1,0}};
+		
 		for(int i=0;i<(matrix.size() * matrix.size());i++) {
 			matrixInSpiral.add(matrix.get(x).get(y));
 			matrix.get(x).set(y, 0);
