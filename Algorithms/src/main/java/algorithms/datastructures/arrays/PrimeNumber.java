@@ -43,7 +43,7 @@ public class PrimeNumber {
 	// In this method, we only iterate through square root of n
 	public static boolean isPrimeMostEfficient(int n) {
 		
-		if(n==0 || n==1 || n%2==0) {
+		if(n==0 || n==1 || (n!=2 && n%2==0)) {
 			return false;
 		}
 		

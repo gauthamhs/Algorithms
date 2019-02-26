@@ -21,13 +21,13 @@ public class CountBinaryTreesDistinctKeys {
 			}
 		}
 		
-		return binaryTreeCount.get(i-1);
+		return binaryTreeCount.get(key);
 	}
 	
 	
 	public static void main(String[] args) {
 		CountBinaryTreesDistinctKeys countBinaryTrees = new CountBinaryTreesDistinctKeys();
-		int key = 3;
+		int key = 5;
 		int noOfBinaryTrees = countBinaryTrees.binaryTreeCountDistinctkey(key);
 		System.out.println(noOfBinaryTrees);
 	}

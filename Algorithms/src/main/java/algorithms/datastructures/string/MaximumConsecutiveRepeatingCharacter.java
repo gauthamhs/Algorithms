@@ -17,7 +17,7 @@ public class MaximumConsecutiveRepeatingCharacter {
 		int currentCount = 1;
 		
 		for(int i=0;i<sequence.length();i++) {
-			if(i<sequence.length()-1 && sequence.charAt(i)==sequence.charAt(i+1)) {
+			if(i+1<sequence.length() && sequence.charAt(i)==sequence.charAt(i+1)) {
 				currentCount++;
 			} else {
 				if(currentCount>count) {

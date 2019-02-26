@@ -24,13 +24,13 @@ public class PreviousPermutation {
 		// Next we swap the largest entry with perm.get(i) if get(i) is lower because permutation array
 		// must appear in increasing order.
 		for(int i = permutationArray.size()-1;i>inversionPoint;i--) {
-			if(permutationArray.get(i)>inversionPoint) {
+			if(permutationArray.get(i)<permutationArray.get(inversionPoint)) {
 				Collections.swap(permutationArray, inversionPoint, i);
 				break;
 			}
 		}
 		
-		Collections.reverse(permutationArray.subList(inversionPoint, inversionPoint+2));
+		Collections.reverse(permutationArray.subList(inversionPoint+1, permutationArray.size()));
 		
 		return permutationArray;
 		
@@ -38,16 +38,16 @@ public class PreviousPermutation {
 	
 	public static void main(String[] args) {
 		List<Integer> permutationArray = new ArrayList<>();
-/*		permutationArray.add(1);
+		permutationArray.add(1);
 		permutationArray.add(0);
 		permutationArray.add(2);
-		permutationArray.add(3);*/
+		permutationArray.add(3);
 		
-		permutationArray.add(2);
+/*		permutationArray.add(2);
 		permutationArray.add(1);
 		permutationArray.add(5);
 		permutationArray.add(0);
-		permutationArray.add(0);
+		permutationArray.add(0);*/
 
 		List<Integer> previousPermutationArray = previousPermutation(permutationArray);
 		System.out.println(printArray(previousPermutationArray));

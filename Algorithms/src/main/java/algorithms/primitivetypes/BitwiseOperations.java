@@ -154,7 +154,7 @@ public class BitwiseOperations {
 		long sumVal = 0;
 		while(a != 0) {
 			if((a&1) != 0) {
-				//sumVal = sumVal + b;
+				sumVal = sum(sumVal, b);
 			}
 			a >>= 1;
 			b <<= 1;

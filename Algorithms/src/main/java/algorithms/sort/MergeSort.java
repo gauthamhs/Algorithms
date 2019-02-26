@@ -28,13 +28,12 @@ public class MergeSort {
 		if(firstIndex>=lastIndex){
 			return arrayOfIntegers;
 		}
-		else{
+		
 			int midIndex =  firstIndex + (lastIndex-firstIndex)/2;
 			mergeSort(arrayOfIntegers, firstIndex, midIndex);
 			mergeSort(arrayOfIntegers, midIndex+1, lastIndex);
 			merge(arrayOfIntegers, firstIndex, midIndex, lastIndex);
 			
-		}
 		return arrayOfIntegers;
 		
 		

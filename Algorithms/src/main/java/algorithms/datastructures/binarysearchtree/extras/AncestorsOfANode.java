@@ -52,7 +52,7 @@ public class AncestorsOfANode {
 		ancestorsOfANode.root.left.left.right.left = new BinaryTreeNode(17);
 		ancestorsOfANode.root.left.left.right.right = new BinaryTreeNode(18);
 		
-		ancestorsOfANode.printAncestorsOfANode(ancestorsOfANode.root, 1);
+		ancestorsOfANode.printAncestorsOfANode(ancestorsOfANode.root, 17);
 		
 	}
 }

@@ -55,7 +55,8 @@ public class BitwiseOperationsTest {
 	
 	@Test
 	public void testReverseBits(){
-		Integer val =43261596; 
+		//Integer val =43261596; 
+		Integer val = 2;
 		int swappedInteger = bitwiseOperations.reverseBits(val);
 		System.out.println("Reversed Integer: " + swappedInteger);
 	}

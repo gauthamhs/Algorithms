@@ -25,7 +25,7 @@ public class NextPermutation {
 		// Next we swap the smallest entry with perm.get(i) if get(i) is higher because permutation array
 		// must appear in decreasing order.
 		for(int i = permutationArray.size()-1;i>inversionPoint;i--) {
-			if(permutationArray.get(i)>inversionPoint) {
+			if(permutationArray.get(i)>permutationArray.get(inversionPoint)) {
 				Collections.swap(permutationArray, inversionPoint, i);
 				break;
 			}

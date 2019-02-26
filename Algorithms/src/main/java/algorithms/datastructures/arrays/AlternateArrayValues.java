@@ -12,10 +12,10 @@ public class AlternateArrayValues {
 	*/
 	
 	public static List<Integer> alternateArrayValues(List<Integer> integerArray){
-		for(int i = 1;i<integerArray.size();i++) {
-			if((i%2!=0 && integerArray.get(i-1) > integerArray.get(i)) || (i%2==0 && integerArray.get(i-1) < integerArray.get(i))
+		for(int i = 0;i<integerArray.size()-1;i++) {
+			if((i%2!=0 && integerArray.get(i) < integerArray.get(i+1)) || (i%2==0 && integerArray.get(i) > integerArray.get(i+1))
 					) {
-				Collections.swap(integerArray, i, i-1);
+				Collections.swap(integerArray, i, i+1);
 			}
 		}
 		return integerArray;
