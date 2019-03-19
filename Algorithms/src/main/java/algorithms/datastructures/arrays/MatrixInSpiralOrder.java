@@ -1,6 +1,7 @@
 package algorithms.datastructures.arrays;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class MatrixInSpiralOrder {
@@ -29,6 +30,39 @@ public class MatrixInSpiralOrder {
 		
 	}
 	
+	 public static List<Integer> spiralOrderForMN(int[][] matrix) {
+	        
+	        int noOfRows = matrix.length;
+	        int noOfColumns = matrix[0].length;
+	        
+	        int[][] DIRECTION = {{0,1},{1,0},{0,-1},{-1,0}};
+	        
+	        int x=0;
+	        int y=0;
+	        int dir=0;
+	        
+	        List<Integer> spiralList = new ArrayList<>();
+	        
+	        for(int i=0;i<(noOfRows*noOfColumns);i++){
+	            spiralList.add(matrix[x][y]);
+	            matrix[x][y]=0;
+	            
+	            int nextX = x + DIRECTION[dir][0];
+	            int nextY = y + DIRECTION[dir][1];
+	                
+	        if(nextX<0 || nextX>=noOfRows || nextY<0 || nextY>=noOfColumns || matrix[nextX][nextY]==0){
+	            dir = (dir+1)%4;
+	            nextX =  x + DIRECTION[dir][0];
+	            nextY = y + DIRECTION[dir][1];
+	        }
+	            x = nextX;
+	            y = nextY;
+	        }
+	        
+	        return spiralList;
+	        
+	    }
+	
 	public static void main(String[] args) {
 		List<Integer> list1 = new ArrayList<>();
 		List<Integer> list2 = new ArrayList<>();
@@ -53,6 +87,10 @@ public class MatrixInSpiralOrder {
 		
 		List<Integer> matrixInSpiral = getMatrixElementsInSpiralOrder(matrix);
 		System.out.println(printArray(matrixInSpiral));
+		
+		int[][] arrayMN = {{1,2,3,4},{5,6,7,8},{9,10,11,12}};
+		List<Integer> spiralList = spiralOrderForMN(arrayMN);
+		System.out.println(spiralList);
 			
 	}
 	

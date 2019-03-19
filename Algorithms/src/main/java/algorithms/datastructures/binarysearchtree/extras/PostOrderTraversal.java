@@ -1,7 +1,12 @@
 package algorithms.datastructures.binarysearchtree.extras;
 
 import java.util.ArrayDeque;
+import java.util.Arrays;
 import java.util.Deque;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 public class PostOrderTraversal {
 	
@@ -44,6 +49,8 @@ public class PostOrderTraversal {
 			
 		}
 		
+		
+		postOrderTraversalStack.stream().map(i->i.data).collect(Collectors.toList());
 		while(!postOrderTraversalStack.isEmpty()) {
 			System.out.print(postOrderTraversalStack.removeFirst().data + " ");
 		}

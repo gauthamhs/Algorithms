@@ -1,6 +1,8 @@
 package algorithms.datastructures.string;
 
+import java.util.ArrayDeque;
 import java.util.Collections;
+import java.util.Deque;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -55,6 +57,29 @@ public class ReverseWords {
 		return sb.toString();
 	}
 	
+    public static String reverseWordsWithSpaces(String s) {
+        
+        if(s==null || s.isEmpty()){
+            return null;
+        }
+        
+        String[] tokens = s.split("\\s+");
+        Deque<String> wordStack = new ArrayDeque<>();
+        
+        for(String token: tokens){
+            wordStack.addFirst(token);
+        }
+        
+        StringBuilder sb = new StringBuilder();
+        
+        while(!wordStack.isEmpty()){
+            sb.append(wordStack.removeFirst()).append(" ");
+        }
+        
+        return sb.toString().trim();
+        
+    }
+	
 	
 	public static void main(String[] args) {
 		String sentence = "Rams are Empty";
@@ -62,5 +87,9 @@ public class ReverseWords {
 		System.out.println(reversedString);
 		String reversedString2 = reverseWordsSplit(sentence);
 		System.out.println(reversedString2);
+		
+		String wordWithSpaces = "a good   example";
+		String reversedWord = reverseWordsWithSpaces(wordWithSpaces);
+		System.out.println(reversedWord);
 	}
 }

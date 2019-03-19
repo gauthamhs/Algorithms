@@ -16,13 +16,9 @@ public class ApplyPermutation {
 	 * */
 	
 	public static List<Integer> applyPermutation(List<Integer> permutationArray, List<Integer> originalArray){
-		List<Integer> rearrangedArray = new ArrayList<>();
-		int arraySize = originalArray.size();
-		
-		
-		
-		for(int i =0; i<originalArray.size(); i++) {
-			rearrangedArray.add(originalArray.get(permutationArray.get(i)<0 ? permutationArray.get(i)+arraySize:permutationArray.get(i)));
+		List<Integer> rearrangedArray = new ArrayList<>(Collections.nCopies(originalArray.size(), Integer.MAX_VALUE));
+		for(int i=0; i<originalArray.size(); i++) {
+			rearrangedArray.set(permutationArray.get(i), originalArray.get(i));
 		}
 		
 		return rearrangedArray;
@@ -68,6 +64,7 @@ public class ApplyPermutation {
 		
 		List<Integer> permutatedArray1 = applyPermutation(permutationArray, originalArray);
 		List<Integer> permutatedArray2 = applyPermutationConstantSpace(permutationArray, originalArray);
+		System.out.println(permutatedArray1);
 		System.out.println(printArray(permutatedArray2));
 	}
 	

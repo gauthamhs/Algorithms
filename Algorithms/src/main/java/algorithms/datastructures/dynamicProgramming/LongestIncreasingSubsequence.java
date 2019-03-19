@@ -47,6 +47,44 @@ public class LongestIncreasingSubsequence {
 		return Collections.max(Arrays.asList(maxLength));
 	}
 	
+	public static int longestIncreasingSubsequenceBinarySearch(int[] array) {
+		
+		int maxLength = 0;
+		int[] dp = new int[array.length];
+		for(int num: array) {
+			int i = Arrays.binarySearch(dp, 0, maxLength, num); // Find the index at which it should be inserted.
+			if(i<0) {
+				i = -(i+1); // Find the insertionPoint
+			}
+			dp[i] = num;
+			if(i==maxLength) {
+				++maxLength;
+			}
+		}
+		
+		return maxLength;
+		
+	}
+	
+	public static int[] longestIncreasingSubsequenceBinarySearchSequence(int[] array) {
+		
+		int maxLength = 0;
+		int[] dp = new int[array.length];
+		for(int num: array) {
+			int i = Arrays.binarySearch(dp, 0, maxLength, num); // Find the index at which it should be inserted.
+			if(i<0) {
+				i = -(i+1); // Find the insertionPoint
+			}
+			dp[i] = num;
+			if(i==maxLength) {
+				++maxLength;
+			}
+		}
+		
+		return Arrays.copyOfRange(dp, 0, maxLength);
+		
+	}
+	
 	public static void main(String[] args) {
 		int[] array = {4,2,3,6,10,1,12};
 		
@@ -55,6 +93,12 @@ public class LongestIncreasingSubsequence {
 		
 		int LIS2 = longestIncreasingSubsequenceNaive(array);
 		System.out.println(LIS2);
+		
+		int LIS3 = longestIncreasingSubsequenceBinarySearch(array);
+		System.out.println(LIS3);
+		
+		int[] LISSequence = longestIncreasingSubsequenceBinarySearchSequence(array);
+		System.out.println(Arrays.toString(LISSequence));
 	}
 
 }

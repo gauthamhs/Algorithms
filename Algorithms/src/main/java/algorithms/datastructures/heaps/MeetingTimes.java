@@ -8,9 +8,18 @@ class Interval{
 	int start;
 	int end;
 	
+	Interval(){
+		
+	}
+	
 	Interval(int start, int end){
 		this.start = start;
 		this.end = end;
+	}
+	
+	@Override
+	public String toString() {
+		return this.start + " " + this.end;
 	}
 }
 
@@ -58,8 +67,6 @@ public class MeetingTimes {
     
     public static boolean canAttendMeetings(Interval[] intervals) {
     	
-    	
-    	
     	Comparator<Interval> comparatorByStartTime = Comparator.comparing((Interval interval) -> interval.start);
     	Arrays.sort(intervals, comparatorByStartTime);
     	
@@ -68,7 +75,6 @@ public class MeetingTimes {
     			return false;
     		}
     	}
-    	
     	
     	return true;
     }
@@ -85,9 +91,9 @@ public class MeetingTimes {
 		Interval interval4= new Interval(7, 10);
 		Interval interval5= new Interval(2, 4);
 		Interval[] intervals2 = {interval4, interval5};
-		int minMeetingsRequired2 = minMeetingRooms(intervals2);
-		System.out.println(minMeetingsRequired2);
-		
+		boolean canAttendMeetings = canAttendMeetings(intervals2);
+		System.out.println(canAttendMeetings);
+			
 	}
 
 }

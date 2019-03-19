@@ -11,8 +11,8 @@ public class DeleteDuplicateFromSortedArray {
 	public static List<Integer> deleteDuplicateElements1(List<Integer> integerArray){
 		List<Integer> uniqueArray = new ArrayList<>();
 		
-		for(int i = 0;i<integerArray.size()-1;i++) {
-			if(integerArray.get(i) != integerArray.get(i+1)) {
+		for(int i = 0;i<integerArray.size();i++) {
+			if(i+1<integerArray.size() && integerArray.get(i) != integerArray.get(i+1)) {
 				uniqueArray.add(integerArray.get(i));
 			}
 		}

@@ -7,7 +7,7 @@ public class SpreadsheetEncoding {
 		return column.chars().reduce(0, (result, c) -> result*26 + c - 'A' + 1);
 	}
 	
-	// If A-Z(1-26) AA- Returns 0+26 = 26
+	// If A-Z(0-26) AA- Returns 0+26 = 26
 	public static int spreadsheetEncodingA0(String column) {
 		int result = 0;
 		for(int i=0;i<column.length();i++) {
@@ -25,7 +25,7 @@ public class SpreadsheetEncoding {
 		int remainder = 0;
 		while(decodeValue>0) {
 			remainder = (decodeValue-1)%26;
-			sb.append(Character.toString((char)( 65 + remainder)));
+			sb.append((char)( 65 + remainder));
 			decodeValue =(decodeValue-1)/ 26;
 			
 		}
@@ -39,7 +39,9 @@ public class SpreadsheetEncoding {
 		int spreadsheetEncodedValue = spreadsheetEncoding(column);
 		System.out.println(spreadsheetEncodedValue);
 		
-		int spreadsheetEncodedValueA0 = spreadsheetEncodingA0(column);
+		String column2 = "BA";
+		
+		int spreadsheetEncodedValueA0 = spreadsheetEncodingA0(column2);
 		System.out.println(spreadsheetEncodedValueA0);
 		
 		int decodeVal = 28;

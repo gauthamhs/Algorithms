@@ -11,11 +11,11 @@ public class EditDistance {
 			return 0;
 		}
 		
-		if(sequence1 == null) {
+		if(sequence1 == null || sequence1.isEmpty()) {
 			return sequence2.length();
 		}
 		
-		if(sequence2==null) {
+		if(sequence2==null || sequence1.isEmpty()) {
 			return sequence1.length();
 		}
 		
@@ -68,12 +68,12 @@ public class EditDistance {
 			bottomUpMatrix[i1][0] = i1;
 		}
 		
-		for(int i2=0;i2<sequence1.length();i2++) {
+		for(int i2=0;i2<=sequence1.length();i2++) {
 			bottomUpMatrix[0][i2] = i2;
 		}
 		
 		for(int i1=1;i1<=sequence1.length();i1++) {
-			for(int i2=1;i2<=sequence1.length();i2++) {
+			for(int i2=1;i2<=sequence2.length();i2++) {
 				if(sequence1.charAt(i1-1)==sequence2.charAt(i2-1)) {
 					bottomUpMatrix[i1][i2] = bottomUpMatrix[i1-1][i2-1];
 				} else { 

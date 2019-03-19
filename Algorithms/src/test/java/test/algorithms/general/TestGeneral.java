@@ -26,8 +26,8 @@ public class TestGeneral {
 		
 		boolean isRectangleOverlap = rectangleOverlap.isRectangleOverlap(r1, r2);
 		System.out.println("Are the two rectangles Overlapping?: " + isRectangleOverlap);
-		System.out.println("Intersecting Rectangle{ x-coordinate: " + intersectingRectangle.getX() + ", y-coordinate: " + intersectingRectangle.getY()
-		+ ", height: " + intersectingRectangle.getHeight() + ", width: " + intersectingRectangle.getWidth());
+		System.out.println("Intersecting Rectangle{ x-coordinate: " + intersectingRectangle.x + ", y-coordinate: " + intersectingRectangle.y
+				 + ", height: " + intersectingRectangle.height + ", width: " + intersectingRectangle.width);
 		
 	}
 

@@ -23,7 +23,7 @@ public class SinusoidalZigzagPrint {
 		int length = rows - 1;
 		int row = 1;
 		
-		List<String> stringList = new ArrayList<>(Collections.nCopies(word.length(), ""));
+		List<String> stringList = new ArrayList<>(Collections.nCopies(rows, ""));
 		
 		
 		if (rows == 1) {

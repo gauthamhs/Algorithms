@@ -265,6 +265,35 @@ public class SinglyLinkedListImpl implements SinglyLinkedList {
 		
 	}
 	
+    public Node deleteAllDuplicates(Node head) {
+        
+        if(head==null){
+            return head;
+        }
+        
+        Node dummyNode = new Node(0);
+        dummyNode.nextNode = head;
+        
+        Node previousNode = dummyNode;
+        Node currentNode = dummyNode.nextNode;
+        
+        while(currentNode!=null){
+            while(currentNode.nextNode!=null && currentNode.data==currentNode.nextNode.data){
+                currentNode = currentNode.nextNode;
+            }
+            if(previousNode.nextNode == currentNode){
+                previousNode = currentNode;     
+            } else{
+               previousNode.nextNode = currentNode.nextNode;
+            }
+    
+            currentNode = currentNode.nextNode;
+        }
+        
+        return dummyNode.nextNode;
+        
+    }
+	
 	
 	
 	@Override
@@ -508,6 +537,7 @@ public class SinglyLinkedListImpl implements SinglyLinkedList {
 		
 		return true;
 	}
+	
 	
 	@Override
 	public Node mergeTwoLinkedLists(Node list1,

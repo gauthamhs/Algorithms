@@ -62,7 +62,6 @@ public class QuickSort {
 		}
 		temp = arrayOfIntegers[i]; // Storing the value at i
 		arrayOfIntegers[i] = pivot; // Adding the pivot value at A[i]
-/*		pivot = temp;*/
 		arrayOfIntegers[lastIndex] = temp; // Adding the a[i] stored in temp to the last index.
 		
 		return i;	

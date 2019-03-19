@@ -6,25 +6,6 @@ import java.util.List;
 
 public class ReverseArray {
 	
-/*	In this method, we will reverse an array */
-	
-	   /*Time Complexity: O(n^2)
-		Space Complexity: O(1)*/
-		public static List<Integer> reverseArrayLeastEfficient(List<Integer> integerArray){
-			
-			for(int i=0;i<integerArray.size();i++) {
-				for(int j = integerArray.size()-1;j>=0;j--) {
-					if(i>=j) {
-						break;
-					}
-					Collections.swap(integerArray, i, j);
-					
-				}
-			}
-			
-			return integerArray;
-		}
-    
 	
    /*Time Complexity: O(n)
 	Space Complexity: O(n)*/

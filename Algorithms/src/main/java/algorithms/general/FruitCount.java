@@ -1,9 +1,11 @@
 package algorithms.general;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.function.Function;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class FruitCount {
 	
@@ -12,20 +14,13 @@ public class FruitCount {
 		if(fruits.isEmpty()) {
 			return "Fruit Basket is Empty";
 		}
-		Map<String, Integer> fruitMap = new HashMap<>();
-		StringBuilder sb = new StringBuilder();
-		for(String fruit : fruits) {
-			if(fruitMap.containsKey(fruit)) {
-				 int fruitCount = fruitMap.get(fruit);
-				 fruitMap.put(fruit, ++fruitCount);
-			} else { 
-				fruitMap.put(fruit, 1);
-			}
-		}
 		
-		for(Map.Entry<String, Integer> entries: fruitMap.entrySet() ) {
+		StringBuilder sb = new StringBuilder();
+		Map<String, Long> fruitMap = fruits.stream().map(i->i.toString()).collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
+		
+		for(Map.Entry<String, Long> entries: fruitMap.entrySet() ) {
 			String fruit = entries.getKey();
-			Integer count = entries.getValue();
+			Long count = entries.getValue();
 			
 			sb.append(fruit + ": " + count + "\n");
 			
