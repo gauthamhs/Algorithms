@@ -30,6 +30,23 @@ public class MajorityElement {
 		
 	}
 	
+	public static Integer majorityElementGreedy(List<Integer> elements) {
+		int count = 0;
+		Integer majorityElement = null;
+		for(Integer element : elements) {
+			if(count==0) {
+				majorityElement = element;
+				count = 1;
+			} else if(majorityElement!=element) {
+				--count;
+			} else {
+				++count;
+			}
+		}
+		
+		return majorityElement;
+	}
+	
 	public static void main(String[] args) {
 		List<Integer> integerArray = new ArrayList<>();
 		integerArray.add(2);
@@ -43,6 +60,9 @@ public class MajorityElement {
 		
 		String majorityElement = findMajorityElement(integerArray);
 		System.out.println(majorityElement);
+		
+		Integer majorityElementGreedy = majorityElementGreedy(integerArray);
+		System.out.println(majorityElementGreedy);
 		
 	}
 
