@@ -49,8 +49,6 @@ public class PostOrderTraversal {
 			
 		}
 		
-		
-		postOrderTraversalStack.stream().map(i->i.data).collect(Collectors.toList());
 		while(!postOrderTraversalStack.isEmpty()) {
 			System.out.print(postOrderTraversalStack.removeFirst().data + " ");
 		}

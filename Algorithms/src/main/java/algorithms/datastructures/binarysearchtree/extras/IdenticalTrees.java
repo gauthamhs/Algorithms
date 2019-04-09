@@ -27,15 +27,13 @@ public class IdenticalTrees {
 			return true;
 		}
 		
-		if(root1!=null && root2!=null) {
-			if((root1.data == root2.data) 
-			&&(areTreesIdentical(root1.left, root2.left)) 
-			&&(areTreesIdentical(root1.right, root2.right))) {
-				return true;
-			}
+		if(root1==null || root2==null) {
+			return false;
 		}
 		
-		return false;
+			return ((root1.data == root2.data) 
+			&&(areTreesIdentical(root1.left, root2.left)) 
+			&&(areTreesIdentical(root1.right, root2.right))) ;
 		
 	}
 	

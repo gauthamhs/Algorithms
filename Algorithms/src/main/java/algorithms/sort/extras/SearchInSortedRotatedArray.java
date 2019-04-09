@@ -65,6 +65,10 @@ public class SearchInSortedRotatedArray {
 		int searchElementInRotatedArray = searchInRotatedArray(array, 378);
 		System.out.println(searchElementInRotatedArray);
 		
+		int[] array2 = {3,4,5,1,2};
+		int rotatedPivotIndex2 = searchPivotIndex(array2);
+		System.out.println(rotatedPivotIndex2);
+		
 	}
 
 }

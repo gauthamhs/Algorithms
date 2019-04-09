@@ -14,15 +14,10 @@ public class PrintLeafNodes {
 		
 		if(root.left==null && root.right==null) {
 			leafs.add(root.data);
-		} else { 
-			if(root.left!=null) {
-				printLeafNodes(root.left);
-			}
-			
-			if(root.right!=null) {
-				printLeafNodes(root.right);
-			}
 		}
+		
+		printLeafNodes(root.left);
+		printLeafNodes(root.right);
 		
 		
 	}

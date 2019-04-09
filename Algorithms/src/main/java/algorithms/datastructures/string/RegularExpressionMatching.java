@@ -4,7 +4,7 @@ public class RegularExpressionMatching {
 	
 	// For Regular Expression Matching, We are given two conditions: 
 	
-	//  which means that this could replace any given character sort of like a wildcard.
+	// . which means that this could replace any given character sort of like a wildcard.
 	//  * such as a*b. This means that we can have 0 occurrence of a and atleast one occurrence of b.
 	// We can use dynamic programming to solve this problem. For *, we need to check for two cases.
 	// Whether we can remove zero occurrences of the character before * and check to see if that works.

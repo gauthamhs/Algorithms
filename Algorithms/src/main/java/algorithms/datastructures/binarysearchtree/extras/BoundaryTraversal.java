@@ -10,7 +10,6 @@ public class BoundaryTraversal {
 			return;
 		}
 		
-		if(root!=null) {
 			if(root.left!=null) {
 				System.out.print(root.data + " ");
 				printLeftBoundary(root.left);
@@ -19,8 +18,6 @@ public class BoundaryTraversal {
 				printLeftBoundary(root.right);
 			}
 		}
-		
-	}
 	
 	void printRightBoundary(BinaryTreeNode root) {
 		
@@ -28,7 +25,6 @@ public class BoundaryTraversal {
 			return;
 		}
 		
-		if(root!=null) {
 			if(root.right!=null) {
 				printRightBoundary(root.right);
 				System.out.print(root.data + " ");
@@ -36,8 +32,6 @@ public class BoundaryTraversal {
 				printRightBoundary(root.left);
 				System.out.print(root.data + " ");
 			}
-		}
-		
 	}
 	
 	void printLeaves(BinaryTreeNode root) {
@@ -48,15 +42,11 @@ public class BoundaryTraversal {
 		
 		if(root.left==null && root.right == null) {
 			System.out.print(root.data + " ");
-		} else {
-			if(root.left!=null) {
-				printLeaves(root.left);
-			}
-			
-			if(root.right!=null) {
-				printLeaves(root.right);
-			}
+			return;
 		}
+		
+		printLeaves(root.left);
+		printLeaves(root.right);
 		
 	}
 	
