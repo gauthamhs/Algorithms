@@ -1,7 +1,5 @@
 package algorithms.general;
 
-import static org.hamcrest.CoreMatchers.instanceOf;
-
 public class FibonacciNumber {
 	
 	// Fibonacci Series looks something like this 0,1,1,2,3,5,8.
