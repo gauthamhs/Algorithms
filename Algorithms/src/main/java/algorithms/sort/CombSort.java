@@ -16,7 +16,7 @@ public class CombSort {
 
  Each iteration of the algorithm consists of three stages:
  1) Calculation of the gap value.
- 2) Iterating over the data set comparing each item with the item that is “gap” elements further down the list 
+ 2) Iterating over the data set comparing each item with the item that is elements further down the list 
     and swapping them if required.
  3) Checking to see if the gap value has reached one and no swaps have occurred. If so, then the set has been sorted.
 
