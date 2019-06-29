@@ -1,7 +1,5 @@
 package algorithms.datastructures.dynamicProgramming;
 
-import static org.hamcrest.CoreMatchers.instanceOf;
-
 public class LongestCommonSubstring {
 	
 	/*In this method, We are trying to identify the longest substring that is common between two strings.
