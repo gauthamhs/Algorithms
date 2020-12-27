@@ -25,7 +25,7 @@ public class SpreadsheetEncoding {
 		int remainder = 0;
 		while(decodeValue>0) {
 			remainder = (decodeValue-1)%26;
-			sb.append((char)( 65 + remainder));
+			sb.append((char)( 'A' + remainder));
 			decodeValue =(decodeValue-1)/ 26;
 			
 		}
@@ -35,16 +35,16 @@ public class SpreadsheetEncoding {
 	
 	
 	public static void main(String[] args) {
-		String column = "BBZBBA";
+		String column = "BZ";
 		int spreadsheetEncodedValue = spreadsheetEncoding(column);
 		System.out.println(spreadsheetEncodedValue);
 		
-		String column2 = "BA";
+		String column2 = "AB";
 		
 		int spreadsheetEncodedValueA0 = spreadsheetEncodingA0(column2);
 		System.out.println(spreadsheetEncodedValueA0);
 		
-		int decodeVal = 28;
+		int decodeVal = 27;
 		String stringVal = spreadsheetDecoding(decodeVal);
 		System.out.println(stringVal);
 	}

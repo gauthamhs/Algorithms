@@ -25,6 +25,23 @@ public class ApplyPermutation {
 		
 	}
 	
+	/*
+	 * To apply permutation in constant space, We need to apply permutation and make the value negative to 
+	 * mark it as completed. We would need two variables, next -> to move on to the next permutation and temp to hold the 
+	 * permutation index value using which the array values will be swapped. Here is the algorithm:
+	 * 
+	 * 1) Choose the first index to be the permutation
+	 * 2) Swap the elements based on the permutation
+	 * 3) Stored the permutation in a temp variable to be the next index for permutation
+	 * 4) Mark permutation as completed
+	 * 5) Choose the temp as the next permutation
+	 * 
+	 * 	Time Complexity: O(n)
+	 *  Space Complexity: O(1)
+	 * 
+	 * */
+	
+	
 	public static List<Integer> applyPermutationConstantSpace(List<Integer> permutationArray, List<Integer> originalArray){
 		int arraySize = originalArray.size();
 		for(int i =0; i<originalArray.size(); i++) {

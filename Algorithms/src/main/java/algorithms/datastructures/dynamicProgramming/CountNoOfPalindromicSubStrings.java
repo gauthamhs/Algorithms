@@ -1,9 +1,12 @@
 package algorithms.datastructures.dynamicProgramming;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class CountNoOfPalindromicSubStrings {
 	
 	public static boolean isPalindrome(String sequence, int startIndex, int endIndex) {
-		while(startIndex<=endIndex) {
+		while(startIndex<endIndex) {
 			if(sequence.charAt(startIndex)!=sequence.charAt(endIndex)) {
 				return false;
 			}
@@ -28,6 +31,29 @@ public class CountNoOfPalindromicSubStrings {
 		}
 		
 		return count;
+	}
+	
+	public static List<List<String>> countPalindromeDecompositions(String sequence) {
+		List<List<String>> result = new ArrayList<>();
+		countPalindromeDecompositionsHelper(sequence,result, new ArrayList<String>(),0);
+		return result;
+	}
+	
+	public static void countPalindromeDecompositionsHelper(String sequence, List<List<String>> result, List<String> count, Integer currentIndex) {
+		if(currentIndex==sequence.length()) {
+			result.add(new ArrayList<>(count));
+			return;
+		}
+		
+		for(int i=currentIndex;i<sequence.length();i++) {
+			String prefix = sequence.substring(currentIndex,i+1);
+			if(isPalindrome(prefix,0,prefix.length()-1)){
+				count.add(prefix);
+				countPalindromeDecompositionsHelper(sequence,result, count, i+1);
+				count.remove(count.size()-1);
+			}
+		}
+		
 	}
 	
 	public static int countNoOfPalindromicSubStringsBottomUp(String sequence) {
@@ -56,12 +82,17 @@ public class CountNoOfPalindromicSubStrings {
 	
 	public static void main(String[] args) {
 		
-		String sequence = "aaa";
+		String sequence = "aab";
 		int count = countNoOfPalindromicSubStringsBottomUp(sequence);
 		System.out.println(count);
 		
 		int count2 = countNoOfPalindromicSubStringNaive(sequence);
 		System.out.println(count2);
+		
+		String sequence2 = "aab";
+		
+		List<List<String>> str = countPalindromeDecompositions(sequence2);
+		System.out.println(str);
 	}
 
 }

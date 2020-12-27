@@ -59,6 +59,7 @@ public class ReversePolishNotation {
 	
 	public static void main(String[] args) {
 		String rpnexpression = "2,3,*,5,4,*,+,9,-";
+		//String rpnexpression =  "3,4,+,2,*,1,+";
 		int rpn = reversePolishNotation(rpnexpression);
 		System.out.println(rpn);
 		

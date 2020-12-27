@@ -203,11 +203,6 @@ public class SinglyLinkedListImpl implements SinglyLinkedList {
 		}
 	}
 	
-	@Override
-	public void deleteKthNodeTwoTraversal(int k) {
-		int length = lengthOfList();
-		deleteAtIndex(length-k-1);
-	}
 	
 	@Override
 	public Node deleteKthNodeSingleTraversal(Node node, int k) {
@@ -265,6 +260,10 @@ public class SinglyLinkedListImpl implements SinglyLinkedList {
 		
 	}
 	
+	//The premise of this algorithm is that we have a previous pointer and a current pointer. The algorithm is something like this:
+	// If the adjacent values of the elements in the linkedlist are different, we just move move previous pointer to current pointer.
+	// If they are same, we keep moving our current pointer until the end of duplicates. We then point the next node of previous to curr.next
+	// to clip all the duplicates
     public Node deleteAllDuplicates(Node head) {
         
         if(head==null){
@@ -490,34 +489,23 @@ public class SinglyLinkedListImpl implements SinglyLinkedList {
 		return minimumNode;
 	}
 
-	@Override
-	public Node findKthToLastElementHard(int k) {
-		Node findKthToLast = this.head;
-		int length = lengthOfList();
-		if(findKthToLast==null || k>=length || k<0) {
-			return null;
-		} else {
-			findKthToLast = findNodeAtIndex(length-1-k);
-		}
-		return findKthToLast;
-	}
 	
 	@Override
 	public Node findKthToLastElementEasy(Node node,int k) {
-		Node dummyHead = new Node(0, node);
-		Node currentNode = dummyHead.nextNode;
-		Node lastNode = currentNode;
-		while(k>1) {
-			lastNode = lastNode.nextNode;
+		Node slow = node;
+		Node fast = node;
+		
+		while(k>0) {
+			fast = fast.nextNode;
 			k--;
 		}
 		
-		while(lastNode.nextNode!=null) {
-			currentNode = currentNode.nextNode;
-			lastNode = lastNode.nextNode;
+		while(fast!=null) {
+			slow=slow.nextNode;
+			fast=fast.nextNode;
 		}
 		
-		return currentNode;
+		return slow;
 	}
 
 	

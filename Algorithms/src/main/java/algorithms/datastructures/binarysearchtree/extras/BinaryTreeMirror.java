@@ -1,5 +1,9 @@
 package algorithms.datastructures.binarysearchtree.extras;
 
+
+//In this algorithm, we need to determine if two subtrees are mirror of each other.
+//To determine that, we need to check the left value of the left subtree with the right value of the
+// right subtree and recurse through the rest of the subtrees
 public class BinaryTreeMirror {
 	
 	BinaryTreeNode root;

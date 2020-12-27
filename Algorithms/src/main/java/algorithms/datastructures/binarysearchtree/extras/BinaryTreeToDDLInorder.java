@@ -1,5 +1,13 @@
 package algorithms.datastructures.binarysearchtree.extras;
 
+
+// A BST is similar to a Doubly linked list in the sense that both have two children. left-right and prev-next.
+// In this case, we can just use a DDL as a BST. The algorithm to convert BST to DLL is as follows:
+
+// We need to sort them in ascending order. Therefore we need to perform an inorder traversal
+// We need to first check if we are at the first node(prev=null). If yes, then make currentNode = root(head node)
+// If not, Then we need to set prev and next pointers in place.
+// In both cases move prev pointer to root.
 public class BinaryTreeToDDLInorder {
 	
 	BinaryTreeNode prev = null;

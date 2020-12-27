@@ -1,5 +1,7 @@
 package test.algorithms.sort;
 
+import java.util.Arrays;
+
 import org.junit.Before;
 import org.junit.Test;
 
@@ -30,6 +32,7 @@ public void setup(){
 @Test
 public void testRadixSort(){
 int[] arrayOfIntegers = {35, 1003, 31, 45};
+System.out.println(Arrays.toString(arrayOfIntegers));
 int[] sortedArray = radixSort.radixSort(arrayOfIntegers);
 System.out.println(printArray(sortedArray));
 }

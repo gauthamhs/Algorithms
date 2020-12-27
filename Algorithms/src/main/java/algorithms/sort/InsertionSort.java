@@ -25,6 +25,8 @@ public class InsertionSort {
 
     Average case: O(n2)
     Array is not sorted and 'k' no of swaps need to be performed. Therefore the complexity would be 'nk'.
+    
+    It works on a key algorithm. key = A[i], and j precedes it. If (A[j]>key) keep sorting and change the key to the lowest val;
 	*/
 	public int[] insertionSort(int[] arrayOfIntegers) {
 		
@@ -38,7 +40,7 @@ public class InsertionSort {
 				arrayOfIntegers[j] = arrayOfIntegers[j+1];
 				arrayOfIntegers[j+1] = temp;
 				key = arrayOfIntegers[j];
-				j = j-1;
+				j--;
 			}
 			
 		}

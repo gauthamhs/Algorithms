@@ -17,7 +17,6 @@ public interface SinglyLinkedList {
 	public Node findNodeAtIndex(int index);
 	public Node findMaximum();
 	public Node findMinimum();
-	public Node findKthToLastElementHard(int k);
 	public Node findKthToLastElementEasy(Node node, int k);
 	
 	
@@ -37,7 +36,6 @@ public interface SinglyLinkedList {
 	public void deleteAtHead();
 	public void deleteAtTail();
 	public void deleteAtIndex(int index);
-	public void deleteKthNodeTwoTraversal(int k);
 	public Node deleteKthNodeSingleTraversal(Node node, int k);
 	public Node deleteDuplicatesSortedArray(Node node);
 	public Node deleteDuplicatesUnsortedArray(Node node);

@@ -71,6 +71,7 @@ public class KnapsackItem {
 		}
 		
 		if(memoize[n][capacity]==null) {
+			
 			int profitWithoutItem = maximumProfitFromKnapSackMemoizeHelper(items, capacity, n-1, memoize);
 			int profitWithItem = (items.get(n).weight>capacity) ? 
 					0 : items.get(n).value + maximumProfitFromKnapSackMemoizeHelper(items, capacity - items.get(n).weight , n-1, memoize);
@@ -116,6 +117,24 @@ public class KnapsackItem {
 		}
 		return profitMatrix[n][capacity];
 		}
+	
+	public static int knapsack(List<Item> items, int capacity) {
+		if(items.size()==0) {
+			return 0;
+		}
+		return knapsackHelper(items, capacity, 0);
+	}
+	
+	public static Integer knapsackHelper(List<Item> items, int capacity, int currentIndex) {
+		if(capacity<=0 || items.size()<=currentIndex) {
+			return 0;
+		}
+		
+		
+		Integer excludeItem =  knapsackHelper(items,capacity,currentIndex+1);
+		Integer includeItem = (items.get(currentIndex).weight>capacity) ? 0 : items.get(currentIndex).value + knapsackHelper(items,capacity-items.get(currentIndex).weight,currentIndex+1);
+		return Math.max(excludeItem, includeItem);
+	}
 
 	
 	public static void main(String[] args) {
@@ -156,6 +175,11 @@ public class KnapsackItem {
 		int profit2BottomUp = maximumProfitFromKnapSackBottomUp(items2, 7);
 		System.out.println("Maximum Profit BottomUp 1: " + profitBottomUp);
 		System.out.println("Maximum Profit BottomUp 2: " + profit2BottomUp);
+		
+		int profit3 = knapsack(items1, 5);
+		int profit4 = knapsack(items2, 7);
+		System.out.println("Maximum Profit BottomUp 1: " + profit3);
+		System.out.println("Maximum Profit BottomUp 2: " + profit4);
 		
 		
 		

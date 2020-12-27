@@ -56,7 +56,7 @@ public class BitwiseOperationsTest {
 	@Test
 	public void testReverseBits(){
 		//Integer val =43261596; 
-		Integer val = 2;
+		Integer val = 11;
 		int swappedInteger = bitwiseOperations.reverseBits(val);
 		System.out.println("Reversed Integer: " + swappedInteger);
 	}
@@ -125,6 +125,22 @@ public class BitwiseOperationsTest {
 		
 		boolean result = bitwiseOperations.isPalindromedigit(value);
 		System.out.println("Is the number a palindrome? : " + result);
+	}
+	
+	@Test
+	public void testConvertBitsToNum() {
+		String num = "10110";
+		
+		int result = bitwiseOperations.convertBitsToNum(num);
+		System.out.println("Number: " + result);
+	}
+	
+	@Test
+	public void testConvertNumToBits() {
+		Integer number=4;
+		
+		String result = bitwiseOperations.convertNumtoBits(number);
+		System.out.println("Bits: " + result);
 	}
 	
 	}

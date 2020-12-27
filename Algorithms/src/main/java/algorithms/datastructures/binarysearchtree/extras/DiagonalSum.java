@@ -1,9 +1,13 @@
 package algorithms.datastructures.binarysearchtree.extras;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
 import java.util.Queue;
+import java.util.stream.Collectors;
 
 public class DiagonalSum {
 	
@@ -81,6 +85,32 @@ public class DiagonalSum {
 		}
 	}
 	
+	public static List<List<Integer>> getDiagonalSums(BinaryTreeNode root){
+		
+		Map<Integer,List<Integer>> nodeMap = new HashMap<>();
+		
+		getDiagonalSumsHelper(root, nodeMap, 0);
+		List<List<Integer>> diagonalValues = nodeMap.values().stream().collect(Collectors.toList());
+
+		
+		return diagonalValues;
+		
+	}
+	
+	public static void getDiagonalSumsHelper(BinaryTreeNode root, Map<Integer, List<Integer>> nodeMap, Integer diagonal) {
+	
+		if(root==null) {
+			return ;
+		}
+		
+		nodeMap.putIfAbsent(diagonal, new ArrayList<Integer>());
+		nodeMap.get(diagonal).add(root.data);
+		getDiagonalSumsHelper(root.left, nodeMap, diagonal+1);
+		getDiagonalSumsHelper(root.right, nodeMap, diagonal);
+		
+	}
+	
+	
 	public static void main(String[] args) {
 		
 		/*               1
@@ -117,6 +147,8 @@ public class DiagonalSum {
 		
 		diagonalSum.printDiagonalSum(diagonalSum.root);
 		diagonalSum.printDiagonalElements(diagonalSum.root);
+		
+		System.out.println(DiagonalSum.getDiagonalSums(diagonalSum.root));
 		
 	}
 

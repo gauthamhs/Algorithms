@@ -5,10 +5,17 @@ public class RegularExpressionMatching {
 	// For Regular Expression Matching, We are given two conditions: 
 	
 	// . which means that this could replace any given character sort of like a wildcard.
-	//  * such as a*b. This means that we can have 0 occurrence of a and atleast one occurrence of b.
+	//  * such as a*b. This means that we can have 0 occurrence of a and at least one occurrence of b.
 	// We can use dynamic programming to solve this problem. For *, we need to check for two cases.
 	// Whether we can remove zero occurrences of the character before * and check to see if that works.
 	// If not, We need to see if the pattern and the previous character matches.
+	
+	// The algorithm works like this: 
+	
+	// 1) if there is a '.' or the text,character pattern matches, we need to get the value of the previous characters of text and pattern.
+	// Eg: "ab." "aby" is same as "ab" in the sense that we are ignoring character at .
+	// 2) if there is a '*', we need to check whether 0 occurrences is true("ab*" is same as "a")
+	// or one or more occurrences is true "ab" is same as "ab*"
 	
 	public static boolean isMatch(String s, String p) {
 	
@@ -31,6 +38,7 @@ public class RegularExpressionMatching {
 				} else if(p.charAt(j-1)=='*') { // If pattern is *, then we need to check for two cases.
 					// Case 1: Check if zero occurrences for the character before * is true.
 					regexMatrix[i][j] = regexMatrix[i][j-2];
+					//Case 2: Check if the pattern works if there is one occurrence of the current character
 					if(p.charAt(j-2)=='.' || p.charAt(j-2) == s.charAt(i-1)) {
 						regexMatrix[i][j] = regexMatrix[i][j] | regexMatrix[i-1][j];
 					}
@@ -44,7 +52,7 @@ public class RegularExpressionMatching {
 	}
 	
 	public static void main(String[] args) {
-		boolean isMatch = isMatch("b", "c*a*b");
+		boolean isMatch = isMatch("xaabyc", "xa*b.c");
 		System.out.println(isMatch);
 	}
 

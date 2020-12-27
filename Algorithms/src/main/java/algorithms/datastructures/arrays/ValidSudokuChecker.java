@@ -6,6 +6,14 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+// The idea of Sudoku checker is to check three things
+
+// Check rows
+// Check Columns
+// Check regions or subarray
+
+// Within these rows or columns, we need to check if the values are between 1-9 and there are no duplicates.
+
 public class ValidSudokuChecker {
 	
 	public static boolean CheckIfSudokuIsValid(List<List<Integer>> sudokuArray) {

@@ -4,6 +4,12 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+
+// For Matrix in spiral order, key thing is to determine the direction in which we need to add elements
+// or the direction in which rows and columns move. And then checking boundary conditions to see whether
+// we need to move the direction.
+
+
 public class MatrixInSpiralOrder {
 	
 	public static List<Integer> getMatrixElementsInSpiralOrder(List<List<Integer>> matrix){

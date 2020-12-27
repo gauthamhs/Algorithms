@@ -52,7 +52,8 @@ public class MinimumAddToMakeParanthesisValid {
 
 	public static void main(String[] args) {
 		
-		String sequence = ")()))(()()())))";
+		//String sequence = ")()))(()()())))";
+		String sequence=")((";
 		
 		int minParanthesisNeeded = minAddToMakeValid(sequence);
 		System.out.println(minParanthesisNeeded);

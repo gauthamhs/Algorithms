@@ -62,10 +62,10 @@ public class CoinChangeCombinations {
 	public static void main(String[] args) {
 		
 		int[] array = {1,2,3,4,5,20};
-		int maxCombo = maximumCombinationsCoinChangeNaive(array, 30);
+		int maxCombo = maximumCombinationsCoinChangeNaive(array, 5);
 		System.out.println(maxCombo);
 		
-		int maxComboBottomUp = maximumCombinationsCoinChangeBottomUp(array, 30);
+		int maxComboBottomUp = maximumCombinationsCoinChangeBottomUp(array, 5);
 		System.out.println(maxComboBottomUp);
 		
 		

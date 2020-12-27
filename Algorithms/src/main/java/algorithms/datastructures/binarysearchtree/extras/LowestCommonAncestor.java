@@ -1,5 +1,14 @@
 package algorithms.datastructures.binarysearchtree.extras;
 
+
+/*The lowest common ancestor between any two nodes is the smallest common root for both nodes
+The algorithm is as follows: 
+	
+1) If root is null, then return root
+2) If root.val==(any of the nodes p and q), then root is the ancestor for that node
+3) If not, check LCA for left and right subtree
+4) if both are not null, p and q exist in different subtrees, return root since we have found a common ancestral root
+5) if any one or both are null, return the branch which is not null and p and q exists in only one tree.*/
 public class LowestCommonAncestor {
 	
 	BinaryTreeNode root;
@@ -59,7 +68,7 @@ public static void main(String[] args) {
 	lowestCommonAncestor.root.left.left.right.left = new BinaryTreeNode(17);
 	lowestCommonAncestor.root.left.left.right.right = new BinaryTreeNode(18);
 	
-	BinaryTreeNode lca = LCA(lowestCommonAncestor.root, new BinaryTreeNode(11), new BinaryTreeNode(18)) ;
+	BinaryTreeNode lca = LCA(lowestCommonAncestor.root, new BinaryTreeNode(1), new BinaryTreeNode(2)) ;
 	System.out.println(lca);
 	
 }

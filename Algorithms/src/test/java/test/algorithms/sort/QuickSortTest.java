@@ -41,7 +41,7 @@ public class QuickSortTest {
 	@Test
 	public void testQuickSort(){
 		int[] arrayOfIntegers = {9,7,5,10,6};
-		quickSort.quickSort(arrayOfIntegers, 0, arrayOfIntegers.length-1);
+		quickSort.quickSort(arrayOfIntegers);
 		System.out.println(printArray(arrayOfIntegers));
 	}
 

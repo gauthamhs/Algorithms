@@ -4,13 +4,14 @@ public class DepthFirstSearch {
 	
 	BinaryTreeNode root;
 	void depthFirstSearch(BinaryTreeNode root) {
+		
+		if(root==null)
+			return;
+		
 			System.out.print(root.data + " ");
-			if(root.left!=null) {
+			
 				depthFirstSearch(root.left);
-			}
-			if(root.right!=null) {
 				depthFirstSearch(root.right);
-			}
 		
 	}
 

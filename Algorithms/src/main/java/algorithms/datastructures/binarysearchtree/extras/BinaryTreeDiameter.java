@@ -1,5 +1,9 @@
 package algorithms.datastructures.binarysearchtree.extras;
 
+// Binary tree Diameter is the longest length between any two nodes that may or may not pass through the root
+// If it passes through the root, we can just calculate max height of left and right subtrees
+// if it doesn't we need to calculate max(left,right diameter)
+// The resultant diameter will be max of these two
 public class BinaryTreeDiameter {
 	
 	BinaryTreeNode root;

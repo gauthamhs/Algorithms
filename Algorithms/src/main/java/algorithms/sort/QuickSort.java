@@ -26,44 +26,61 @@ Note the elements on the left or right side are not sorted in any particular ord
 - Conquer by recursively sorting the elements to the left and right of the pivot.
 - No need to Combine !. The elements would have already been sorted.
 
+Quick sort is in-place as its space efficient, but not stable(relative ordering of records with respect to position)
+
  * */
 
 public class QuickSort {
 	
-	public int[] quickSort(int[] arrayOfIntegers, int firstIndex, int lastIndex){
-
-		if(firstIndex>=lastIndex){
-			return arrayOfIntegers;
-		}else{
-		
-		int pivot = partition(arrayOfIntegers, firstIndex, lastIndex);
-		quickSort(arrayOfIntegers, firstIndex, pivot-1);
-		quickSort(arrayOfIntegers, pivot+1, lastIndex);
-		
-		return arrayOfIntegers;
-		}
-		
+	public int[] quickSort(int[] A) {
+		return quickSort(A, 0, A.length-1);
 	}
 	
-	public int partition(int[] arrayOfIntegers, int firstIndex, int lastIndex){
+	public int[] quickSort(int[] A, int low, int high){
+
+		if(low>=high){
+			return A;
+		}else{
 		
-		int pivot = arrayOfIntegers[lastIndex];
-		int i = firstIndex;
+		int pivot = partition(A, low, high);
+		quickSort(A, low, pivot-1);
+		quickSort(A, pivot+1, high);
 		
-		int temp = 0;
+		return A;
+		}
+	}
+	
+	public int partition(int[] A, int low, int high){
 		
-		for(int j=firstIndex;j<lastIndex;j++){
-			if(arrayOfIntegers[j]<=pivot){
-				temp = arrayOfIntegers[j];
-				arrayOfIntegers[j] = arrayOfIntegers[i];
-				arrayOfIntegers[i] = temp;
-				i++;
+
+		int pivot = A[high];
+		//int pivotElement = ((int)Math.random()*(high-low) + 1) + low;
+		//int pivotRandom = A[pivotElement];
+		
+		int i=low;
+		int j=high;
+		
+		//Keep running the low until the two indices meet
+		while(i<=j) {
+			//If A[i] is smaller than pivot, we need to move the index as this is already in place
+			while(A[i]<pivot) {
+				++i;
+			}
+			//If A[j] is greater/equal to pivot, do nothing as its already in place
+			while(A[j]>=pivot) {
+				--j;
+			}
+			if(i<=j) { // This condition is needed if j goes below i. If i<j, we can swap i and j and keep moving until two indices meet
+			int temp = A[j];
+			A[j]=A[i];
+			A[i]=temp;
 			}
 		}
-		temp = arrayOfIntegers[i]; // Storing the value at i
-		arrayOfIntegers[i] = pivot; // Adding the pivot value at A[i]
-		arrayOfIntegers[lastIndex] = temp; // Adding the a[i] stored in temp to the last index.
 		
+		//Once the loop is complete, swap the pivot element with A[low] and return low as the pivot index
+		int temp = A[i];
+		A[i]=pivot;
+		A[high]=temp;
 		return i;	
 			
 	}

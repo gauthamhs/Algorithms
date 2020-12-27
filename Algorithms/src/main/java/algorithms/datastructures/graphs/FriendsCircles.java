@@ -1,4 +1,4 @@
-package algorithms.datastructures.graphs;
+	package algorithms.datastructures.graphs;
 
 public class FriendsCircles {
 	
@@ -27,17 +27,18 @@ public class FriendsCircles {
 			friendsCircle+=dfs(M,i);
 		}
 		
+		
 		return friendsCircle;
 	}
 	
 	
 	
-	  static void dfsVisited(int[][] M, int[] visited, int i) {
+	  static void dfsVisited(int[][] M, int[] visitedFriends, int i) {
 		  
 		  for(int j=0;j<M.length;j++) {
-			  if(M[i][j]==1 && visited[j]==0) {
-				  visited[j]=1;
-				  dfsVisited(M,visited,j);
+			  if(M[i][j]==1 && visitedFriends[j]==0) {
+				  visitedFriends[j]=1;
+				  dfsVisited(M,visitedFriends,j);
 			  }
 		  }
 		  

@@ -16,10 +16,12 @@ public class PalindromeWithSpecialCharacters {
 			   --j;	
 			}
 			
-			if(Character.toLowerCase(sentence.charAt(i++))!=
-			   Character.toLowerCase(sentence.charAt(j--))) {
+			if(Character.toLowerCase(sentence.charAt(i))!=
+			   Character.toLowerCase(sentence.charAt(j))) {
 				return false;
-			}	
+			}
+			++i;
+			--j;
 		}
 		return true;
 	}

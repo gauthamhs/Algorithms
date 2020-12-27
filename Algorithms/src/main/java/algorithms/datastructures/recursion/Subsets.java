@@ -44,6 +44,24 @@ public class Subsets {
 		}
 	}
 	
+	  public List<List<Integer>> subsets(int[] nums) {
+	        List<List<Integer>> ans = new ArrayList<>();
+	        List<Integer> list = new ArrayList<Integer>();
+	        recursion(ans, list, nums,0);
+	        return ans;
+	    }
+	    
+	    public void recursion(List<List<Integer>> ans, List<Integer> list, int[] nums,int c){
+	        
+	        ans.add(new ArrayList<Integer>(list));
+	    
+	        for(int i=c;i<nums.length;i++){
+	            list.add(nums[i]);
+	            recursion(ans, list, nums, i+1);
+	            list.remove(list.size()-1);      
+	        }
+	    }
+	
 	public static void main(String[] args) {
 		List<Integer> nums = new ArrayList<>(Arrays.asList(new Integer[] {1,2,3}));
 		List<List<Integer>> subsetsWithoutDuplicates = generateSubsetsWithoutDuplicates(nums);

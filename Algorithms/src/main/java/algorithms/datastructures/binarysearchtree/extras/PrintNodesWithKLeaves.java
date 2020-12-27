@@ -34,7 +34,7 @@ public class PrintNodesWithKLeaves {
 	}
 	
 	public static void main(String[] args) {
-		int k = 2;
+		int k = 3;
 		PrintNodesWithKLeaves kLeaves = new PrintNodesWithKLeaves();
 		kLeaves.root = new BinaryTreeNode(1);
 		kLeaves.root.left = new BinaryTreeNode(2);

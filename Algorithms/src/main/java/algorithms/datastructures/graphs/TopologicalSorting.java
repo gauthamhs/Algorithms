@@ -10,6 +10,15 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
+
+/*For Topological Sorting, It goes like this: 
+ * 
+ * We have courses/vertices that are dependent/have outgoing edges to other vertices
+ * The one that's having the incoming edge is the dependency, and the one that has the outgoing
+ * edge is the dependent. For example: If we have (0,1) (1,2) (2,3), (2,4), First indice is the dependent
+ * Second indice is the dependency. First we need to find out 0 degree dependents(the ones that dont have a 
+ * dependency). Next we need to have an adjacency list of 
+ * */
 public class TopologicalSorting {
 	
 	public static List<Integer> prerequisitesOrder(int courses, int[][] prerequisites){
@@ -78,7 +87,7 @@ public class TopologicalSorting {
 		
 		for(int j=0;j<courses;j++) {
 			if(dependencies[j]==0) {
-				queue.add((char) (j + 65));
+				queue.add((char) ('A' + j));
 			}
 		}
 		

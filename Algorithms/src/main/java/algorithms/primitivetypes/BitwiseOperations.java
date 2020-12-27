@@ -1,6 +1,41 @@
 package algorithms.primitivetypes;
 
 public class BitwiseOperations {
+	
+	/*
+	 * ConvertBitsToNum: Lets say, we have a string of bits, we need to get its
+	 * integer number 101:5
+	 * 
+	 * Here we need to use the 2's formula: 2^0*1 + 2^2*1 = 5
+	 * 2^0,2^1,2^2 is constant. Since its multiplication we use left shift, if we find 1, we multiply by 1 and move on.
+	 */
+	public int convertBitsToNum(String num) {
+		int val=0;
+		for(char n : num.toCharArray()) {
+			val = val<<1;
+			if(n=='1') {
+				val+=1;
+			}
+		}
+		
+		return val;
+	}
+	
+	
+	/*
+	 * Here we keep processing the bits until there are no longer any bits to process,
+	 * We use right shift to divide the number. we check the state of the lsb and keep processing until we recorded all bits
+	 */	
+	public String convertNumtoBits(int number) {
+		StringBuilder result =  new StringBuilder("");
+		while(number!=0) {
+			result.insert(0, number&1);
+			number = number>>>1;
+		}
+		
+		return result.toString();
+	}
+	
 
 	/*BitCount: Count total number of 1's 
 	 * This process is done by masking:- AND operation with the integer value
@@ -97,15 +132,14 @@ public class BitwiseOperations {
 	 * */
 	 public int reverseBits(int n) {
 	        int result = 0;
-	        int mask = 1;
-	        for (int i = 0; i < 32; i ++) {
-	            int digit = n & mask;
-	            result = (result << 1);
-	            if (digit != 0) {
-	                 result = result + 1;
-	            }
-	            mask = (mask << 1);
+	        while(n!=0) {
+	        	result = result<<1;
+	        	if((n&1)==1) {
+	        		result+=1;
+	        	}
+	        	n = n>>1;
 	        }
+	        
 	        return result;
 	    }
 	
@@ -137,7 +171,7 @@ public class BitwiseOperations {
 	public long sum(long a, long b) {
 		long carryBits = 0;
 		
-		while(b!=0) {
+		while(b!=0) { // If there is no carry propagated to the left, end loop
 			carryBits = (a&b) ; // Determine the bits that needs to be carried over
 			a = a ^ b; //Add a and b without the carry
 			b = carryBits<<1; // Propagate the carry if any

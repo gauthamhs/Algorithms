@@ -40,7 +40,7 @@ public class SortByGPA {
 		
 		//Comparator<Student> sortByGPA = Comparator.comparing((Student a) -> a.gpa);
 		
-		Comparator<Student> sortByGPA = (Student a, Student b) -> {
+		Comparator<Student> sortByGPA = (a, b) -> {
 			if(a.gpa!=b.gpa) {
 				return Integer.compare(b.gpa, a.gpa);
 			}

@@ -24,7 +24,7 @@ public class WordBreak {
 				isWordPossible[i] = true;
 			}
 			
-			if(isWordPossible[i]==false) {
+			if(isWordPossible[i]) {
 			for(int j=0;j<i;j++) {
 				if(isWordPossible[j] && dict.contains(str.substring(j+1,i+1))) {
 					isWordPossible[i] = true;
@@ -45,7 +45,7 @@ public class WordBreak {
 		dictionary.add("PLAY");
 		dictionary.add("FOOTBALL");
 		
-		String str = "PLAYTOILIKETOI";
+		String str = "PLAYILIKETOFOOTBALL";
 		
 		boolean isWordPossible = isWordBreakPossible(str, dictionary);
 		System.out.println(isWordPossible);

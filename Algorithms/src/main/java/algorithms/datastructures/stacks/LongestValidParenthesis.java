@@ -24,7 +24,8 @@ public class LongestValidParenthesis {
 	}
 	
 	public static void main(String[] args) {
-		String s = "(())()()())()()((()";
+		//String s = "(())()()())()()((()";
+		String s ="()";
 		int longestValidPalindrome = longestValidParenthesis(s);
 		System.out.println(longestValidPalindrome);
 	}

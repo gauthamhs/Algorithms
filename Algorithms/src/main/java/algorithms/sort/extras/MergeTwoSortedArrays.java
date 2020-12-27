@@ -10,7 +10,7 @@ public class MergeTwoSortedArrays {
         int  b=n-1;
         int writeIndex = m+n-1;
         
-        while(a>=0 & b>=0){
+        while(a>=0 && b>=0){
             nums1[writeIndex--] = nums1[a]>nums2[b] ? nums1[a--] : nums2[b--];
         }
         
@@ -22,7 +22,7 @@ public class MergeTwoSortedArrays {
 	
 	public static void main(String[] args) {
 		int[] nums1 = {1,3,4,0,0,0};
-		int[] nums2 = {2,5,6};
+		int[] nums2 = {-1,-1,-1};
 		
 		merge(nums1, 3, nums2, 3);
 		System.out.println(Arrays.toString(nums1));

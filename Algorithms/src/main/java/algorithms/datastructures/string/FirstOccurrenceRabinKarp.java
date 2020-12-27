@@ -5,6 +5,18 @@ public class FirstOccurrenceRabinKarp {
 	// Rabin-Karp Algorithm searches for the string pattern in the text.
 	// It works on a rolling hashing algorithm where it gets the hash value 
 	// of string pattern and the hash value comparison and checks if they are similar.
+	
+	//The algorithm is as follows:
+	/*
+	 * 1) First check text and pattern length. If pattern length > text length,
+	 * return false. Default: false 
+	 * 2) Do one pass on the pattern length and
+	 * computes hash codes: base, power, thash, shash 
+	 * 3) Iteratre over the text to see if the text length matches pattern. If it does, return index. 
+	 * 4) If not, recompute hash code 5) Check with last element.
+	 */
+
+
 	public static int rabinKarp(String text, String pattern) {
 
 	    if (pattern.length() > text.length()) {

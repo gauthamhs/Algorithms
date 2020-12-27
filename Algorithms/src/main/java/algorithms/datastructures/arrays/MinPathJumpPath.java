@@ -82,6 +82,8 @@ public static Elements minNumberOfSteps(List<Integer> integerArray) {
 		integerArray.add(1);
 		integerArray.add(2);
 		integerArray.add(8);
+		
+		System.out.println("Original Array: " + integerArray);
 
 		elements = minNumberOfSteps(integerArray);
 		System.out.println("Min Steps to reach last index is: " + elements.getMinSteps());

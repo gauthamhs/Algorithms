@@ -60,7 +60,7 @@ public class TestLinkedList {
 	
 	@Test
 	public void testFindOperations() {
-		int[] nodes = {20, 50, 100 ,120, 150, 180, 200, 220};
+		int[] nodes = {20, 50, 100 ,120, 150, 180, 200};
 		SinglyLinkedListImpl linkedList = new SinglyLinkedListImpl().addAll(nodes);
 		Node findNode2 = linkedList.findNode(new Node(100));
 		
@@ -81,8 +81,6 @@ public class TestLinkedList {
 		Node findAtIndex =  linkedList.findNodeAtIndex(2);
 		System.out.println("Node at Index 2: " + findAtIndex);
 		
-		Node findKthfromLast = linkedList.findKthToLastElementHard(0);
-		System.out.println("Element 1 from last: " + findKthfromLast);
 		
 		Node findKthfromLastEasy = linkedList.findKthToLastElementEasy(linkedList.head, 2);
 		System.out.println("Element 2 from last: " + findKthfromLastEasy);
@@ -164,15 +162,22 @@ public class TestLinkedList {
 	
 	@Test
 	public void testPalindrome() {
-		int[] nodes = {20, 50, 100 ,120, 150, 180, 200, 220};
-		SinglyLinkedListImpl linkedList = new SinglyLinkedListImpl().addAll(nodes);
-		boolean isPalindrome = linkedList.isPalindrome(linkedList.head);
-		System.out.println("Is first List a palindrome?: " + isPalindrome);
+		/*
+		 * int[] nodes = {20, 50, 100 ,120, 150, 180, 200, 220}; SinglyLinkedListImpl
+		 * linkedList = new SinglyLinkedListImpl().addAll(nodes); boolean isPalindrome =
+		 * linkedList.isPalindrome(linkedList.head);
+		 * System.out.println("Is first List a palindrome?: " + isPalindrome);
+		 * 
+		 * int[] nodes2 = {20, 50, 100 ,120, 120, 100, 50, 20}; SinglyLinkedListImpl
+		 * linkedList2 = new SinglyLinkedListImpl().addAll(nodes2); boolean
+		 * isPalindrome2 = linkedList.isPalindrome(linkedList2.head);
+		 * System.out.println("Is second List a palindrome?: " + isPalindrome2);
+		 */
 		
-		int[] nodes2 = {20, 50, 100 ,120, 120, 100, 50, 20};
-		SinglyLinkedListImpl linkedList2 = new SinglyLinkedListImpl().addAll(nodes2);
-		boolean isPalindrome2 = linkedList.isPalindrome(linkedList2.head);
-		System.out.println("Is second List a palindrome?: " + isPalindrome2);
+		int[] nodes3 = {1, 2, 3 ,2, 1};
+		SinglyLinkedListImpl linkedList3 = new SinglyLinkedListImpl().addAll(nodes3);
+		boolean isPalindrome3 = linkedList3.isPalindrome(linkedList3.head);
+		System.out.println("Is second List a palindrome?: " + isPalindrome3);
 		
 	}
 	

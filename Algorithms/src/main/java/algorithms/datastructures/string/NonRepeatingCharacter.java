@@ -1,46 +1,59 @@
 package algorithms.datastructures.string;
 
-import java.util.HashMap;
 import java.util.Map;
+import java.util.function.Function;
+import java.util.stream.Collectors;
 
 public class NonRepeatingCharacter {
 	
 	public static Character firstNonRepeatingCharacter(String word) {
 		
 		
-		if(word.isEmpty() || word==null) {
-			return null;
-		}
+		Map<Character, Long> charMap = word.chars().mapToObj(i -> (char)i).collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
 		
-		Map<Character, Integer> charCount = new HashMap<>();
-		for(int i=0;i<word.length();i++) {
-			if(charCount.containsKey(word.charAt(i))) {
-				int occurrence = charCount.get(word.charAt(i));
-				charCount.put(word.charAt(i), ++occurrence);
-				
-			} else {
-				charCount.put(word.charAt(i), 1);
-			}
-		}
-		
-		for(Map.Entry<Character, Integer> entry: charCount.entrySet()) {
-			Character ch = entry.getKey();
-			int occurrence = entry.getValue();
+		for(Map.Entry<Character, Long> entry : charMap.entrySet()) {
+			Character key = entry.getKey();
+			Long value = entry.getValue();
 			
-			if(occurrence==1) {
-				return ch;
+			if(value==1) {
+				return key;
 			}
 		}
-		
 		return null;
 		
+	}
+	
+	public static Character firstNonRepeatingCharacterNoMap(String word) {
+		
+		if(word.length()==0) {
+			return null;
+			
+		}
+		
+		for(int i=0;i<word.length();i++) {
+			int count = 1 ;
+			while(i+1<word.length() && word.charAt(i)==word.charAt(i+1)) {
+				++count;
+				++i;
+			}
+			if(count==1) {
+				return word.charAt(i);
+			}
+			
+		}
+		
+		
+		
+		
+		return null;
 	}
 	
 	public static void main(String[] args) {
 		String word = "aabbccaaadddeffffgg";
 		Character nonRepeatingCharacter = firstNonRepeatingCharacter(word);
 		System.out.println(nonRepeatingCharacter);
+		Character nonRepeatingCharacterNoMap = firstNonRepeatingCharacterNoMap(word);
+		System.out.println(nonRepeatingCharacterNoMap);
 		
 	}
-
 }

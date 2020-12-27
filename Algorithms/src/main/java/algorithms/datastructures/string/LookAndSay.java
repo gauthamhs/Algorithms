@@ -33,7 +33,7 @@ public class LookAndSay {
 	}
 	
 	public static void main(String[] args) {
-		int n = 6;
+		int n = 3;
 		String lookAndSay = lookAndSay(n);
 		System.out.println(lookAndSay);
 	}

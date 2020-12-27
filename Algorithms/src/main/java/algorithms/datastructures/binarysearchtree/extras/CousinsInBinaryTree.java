@@ -50,6 +50,7 @@ public class CousinsInBinaryTree {
 		 *        
 		 */
 		
+	
 		CousinsInBinaryTree cousins = new CousinsInBinaryTree();
 		cousins.root = new BinaryTreeNode(1);
 		cousins.root.left = new BinaryTreeNode(2);

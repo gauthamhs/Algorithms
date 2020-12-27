@@ -53,7 +53,7 @@ public class DecomposeWords {
 		dictionary.add("am");
 		
 		String sentence = "amanaplanacanal";
-		
+		System.out.println(sentence.length());
 		List<String> decomposedWords =  decomposedWords(dictionary, sentence);
 		System.out.println(decomposedWords);
 	}

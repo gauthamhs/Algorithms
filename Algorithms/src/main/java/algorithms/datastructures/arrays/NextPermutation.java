@@ -31,6 +31,7 @@ public class NextPermutation {
 			}
 		}
 		
+		
 		Collections.reverse(permutationArray.subList(inversionPoint+1, permutationArray.size()));
 		
 		return permutationArray;

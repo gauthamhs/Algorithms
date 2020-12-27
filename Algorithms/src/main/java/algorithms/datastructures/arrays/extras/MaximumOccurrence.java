@@ -1,27 +1,33 @@
 package algorithms.datastructures.arrays.extras;
 
-import java.util.HashMap;
+import java.util.Arrays;
 import java.util.Map;
+import java.util.Map.Entry;
+import java.util.function.Function;
+import java.util.stream.Collectors;
 
 public class MaximumOccurrence {
 
 	public static int maximumOccurrence(int[] integerVals) {
 		Integer maxItem = null;
-		int count = 0;
+		long count = 0;
 		
-		Map<Integer, Integer> maxOccurrenceCountMap = new HashMap<>();
-		for(int i=0;i<integerVals.length;i++) {
-			if(maxOccurrenceCountMap.containsKey(integerVals[i])) {
-				int occurrence = maxOccurrenceCountMap.get(integerVals[i]);
-				maxOccurrenceCountMap.put(integerVals[i], ++occurrence);
-			} else { 
-				maxOccurrenceCountMap.put(integerVals[i], 1);
-			}
-		}
+		// Map<Integer, Integer> maxOccurrenceCountMap = new HashMap<>();
+		/*
+		 * for(int i=0;i<integerVals.length;i++) {
+		 * if(maxOccurrenceCountMap.containsKey(integerVals[i])) { int occurrence =
+		 * maxOccurrenceCountMap.get(integerVals[i]);
+		 * maxOccurrenceCountMap.put(integerVals[i], ++occurrence); } else {
+		 * maxOccurrenceCountMap.put(integerVals[i], 1); } }
+		 */
 		
-		for(Map.Entry<Integer, Integer> entries : maxOccurrenceCountMap.entrySet()) {
+		Map<Integer, Long> maxOccurrenceCountMap = Arrays.stream(integerVals).boxed().collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
+		
+		
+		
+		for(Entry<Integer, Long> entries : maxOccurrenceCountMap.entrySet()) {
 			int element = entries.getKey();
-			int occurrence = entries.getValue();
+			Long occurrence = entries.getValue();
 			if(occurrence>count) {
 				count = occurrence;
 				maxItem = element;

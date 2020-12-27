@@ -51,6 +51,51 @@ List<List<Integer>> getSpiralBinaryTreeOneDeque(BinaryTreeNode root){
 		
 		return spiralBinaryTreeList;
 	}
+
+public static List<List<Integer>> getSpiralBinaryTree(BinaryTreeNode root) {
+	
+	List<List<Integer>> result = new ArrayList<>();
+	Deque<BinaryTreeNode> deque = new ArrayDeque<>();
+	int level = 0;
+	
+	deque.add(root);
+	boolean isLeft = true;
+
+	
+	while(!deque.isEmpty()) {
+		
+		result.add(new ArrayList<>());
+		int queueSize = deque.size();
+		
+		for(int i=0;i<queueSize;i++) {
+			root = deque.removeFirst();
+			if(isLeft) {
+				result.get(level).add(root.data);
+			}else {
+				result.get(level).add(0, root.data);
+
+			}
+			
+			if(root.left!=null) {
+				deque.add(root.left);
+			}
+			
+			if(root.right!=null) {
+				deque.add(root.right);
+			}
+		
+			
+		}
+		
+		isLeft = (isLeft) ? false : true;
+		++level;
+		
+	}
+	
+	
+	return result;
+
+}
 	
 	List<List<Integer>> getSpiralBinaryTreeTwoStack(BinaryTreeNode root){
 		
@@ -150,8 +195,11 @@ List<List<Integer>> getSpiralBinaryTreeOneDeque(BinaryTreeNode root){
 		
 		List<List<Integer>> spiralTreeList = spiralTree.getSpiralBinaryTreeTwoStack(spiralTree.root);
 		List<List<Integer>> spiralTreeList2 = spiralTree.getSpiralBinaryTreeOneDeque(spiralTree.root);
+		List<List<Integer>> spiralTreeList3 = getSpiralBinaryTree(spiralTree.root);
 		System.out.println(spiralTreeList);
 		System.out.println(spiralTreeList2);
+		System.out.println(spiralTreeList3);
+		
 	}
 
 }

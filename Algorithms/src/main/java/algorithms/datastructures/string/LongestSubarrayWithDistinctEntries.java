@@ -1,28 +1,29 @@
 package algorithms.datastructures.string;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.HashSet;
+import java.util.Set;
 
 public class LongestSubarrayWithDistinctEntries {
 	
 	public static int longestSubarrayWithDistinctEntries(char[] charList) {
 		
-		Map<Character, Integer> charMap = new HashMap<>();
+		if(charList.length==0) {
+			return 0;
+		}
 		
-		int i=0;
-		int j=0;
+		int lw=0;
+		int rw=0;
 		int maxLength = 1;
-		
-		while(j<charList.length) {
-			if(charMap.containsKey(charList[j])) {
-				int iIdx = charMap.get(charList[i]);
-				charMap.remove(charList[i]);
-				maxLength = Math.max(maxLength, j-i);
-				i = iIdx+1;
-				
-			} else {
-				charMap.put(charList[j], j);
-				j++;
+		Set<Character> charSet = new HashSet<>();
+	
+		while(rw<charList.length) {
+			if(!charSet.contains(charList[rw])) {
+				charSet.add(charList[rw]);
+				++rw;
+				maxLength = Math.max(maxLength, rw-lw);
+			}else {
+				charSet.remove(charList[lw]);
+				lw=lw+1;
 			}
 		}
 		
@@ -31,7 +32,7 @@ public class LongestSubarrayWithDistinctEntries {
 	}
 	
 	public static void main(String[] args) {
-		char[] charList = {'f','s','f','e','t','w','e','n','w','e'};
+		char[] charList = {'f','s','f','t','e','t','w','e','n','w','e'};
 		int length = longestSubarrayWithDistinctEntries(charList);
 		System.out.println(length);
 		

@@ -8,6 +8,8 @@ public class PrimeNumber {
 	// Least efficient method. In this method, we are checking all numbers from from 2 to n 
 	// to see that if its a prime number.
 	
+	//Time Complexity: O(sqrt(n))
+	
 	public static boolean isPrime(int n) {
 		
 		if(n==0 || n==1) {
@@ -59,7 +61,7 @@ public class PrimeNumber {
 	}
 	
 	public static void main(String[] args) {
-		int number = 3;
+		int number = 10;
 		boolean isPrimeNumber = isPrime(number);
 		//boolean isPrimeNumber = isPrimeMostEfficient(number);
 		System.out.println(isPrimeNumber);

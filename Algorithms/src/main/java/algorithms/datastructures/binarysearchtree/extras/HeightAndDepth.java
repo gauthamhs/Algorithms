@@ -1,25 +1,36 @@
 package algorithms.datastructures.binarysearchtree.extras;
 
-public class DepthOfANode {
+public class HeightAndDepth {
 	
 	BinaryTreeNode root;
 	
-	public int depthOfANode(BinaryTreeNode root, int val) {
-		return depthOfANodeHelper(root, val, 1);
-	}
-	
-	public int depthOfANodeHelper(BinaryTreeNode root, int val, int height) {
-		if(root==null) {
+	public static int heightOfTree(BinaryTreeNode root) {
+		
+		if(root==null ) {
 			return 0;
 		}
 		
-		if(root.data == val) {
+		return 1+Math.max(heightOfTree(root.left), heightOfTree(root.right));
+		
+	}
+	
+	public static int heightOfNode(BinaryTreeNode node, int val) {
+		
+		return heightOfNodeHelper(node,val,1);
+				
+	}
+	
+	public static int heightOfNodeHelper(BinaryTreeNode node, int val, int height) {
+		if(node==null) {
+			return 0;
+		}
+		if(node.data==val) {
 			return height;
 		}
 		
-		return (depthOfANodeHelper(root.left, val, height+1) | depthOfANodeHelper(root.right, val, height+1));
+		return heightOfNodeHelper(node.left,val,height+1) | heightOfNodeHelper(node.right, val, height+1);
+		
 	}
-	
 	
 	
 	public static void main(String[] args) {
@@ -36,7 +47,7 @@ public class DepthOfANode {
 		 *        
 		 */
 		
-		DepthOfANode nodeDepth = new DepthOfANode();
+		HeightAndDepth nodeDepth = new HeightAndDepth();
 		nodeDepth.root = new BinaryTreeNode(1);
 		nodeDepth.root.left = new BinaryTreeNode(2);
 		nodeDepth.root.right = new BinaryTreeNode(3);
@@ -56,8 +67,11 @@ public class DepthOfANode {
 		nodeDepth.root.left.left.right.left = new BinaryTreeNode(17);
 		nodeDepth.root.left.left.right.right = new BinaryTreeNode(18);
 		
-		int depth = nodeDepth.depthOfANode(nodeDepth.root, 10);
+		int depth = heightOfTree(nodeDepth.root);
 		System.out.println(depth);
+		
+		int heightNode = heightOfNode(nodeDepth.root, 10);
+		System.out.println(heightNode);
 		
 	}
 

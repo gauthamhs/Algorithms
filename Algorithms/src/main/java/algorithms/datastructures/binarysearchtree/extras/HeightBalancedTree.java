@@ -13,11 +13,11 @@ public class HeightBalancedTree {
 		int rightHeight = height(root.right);
 		
 		
-		if(Math.abs(leftHeight-rightHeight)<=1 && isHeightBalanced(root.left) &&isHeightBalanced(root.right)) {
-			return true;
+		if(Math.abs(leftHeight-rightHeight)>1) {
+			return false;
 		}
 		
-		return false;
+		return isHeightBalanced(root.left) && isHeightBalanced(root.right);
 	}
 	
 	int height(BinaryTreeNode root) {
@@ -46,20 +46,24 @@ public class HeightBalancedTree {
 		heightBalancedTree.root.left = new BinaryTreeNode(2);
 		heightBalancedTree.root.right = new BinaryTreeNode(3);
 		heightBalancedTree.root.left.left = new BinaryTreeNode(4);
-		heightBalancedTree.root.left.right = new BinaryTreeNode(5);
-		heightBalancedTree.root.right.left = new BinaryTreeNode(6);
-		heightBalancedTree.root.right.right = new BinaryTreeNode(7);
 		heightBalancedTree.root.left.left.left = new BinaryTreeNode(8);
-		heightBalancedTree.root.left.left.right = new BinaryTreeNode(9);
-		heightBalancedTree.root.left.right.left = new BinaryTreeNode(10);
-		heightBalancedTree.root.left.right.right = new BinaryTreeNode(11);
-		heightBalancedTree.root.right.left.left = new BinaryTreeNode(12);
-		heightBalancedTree.root.right.left.right = new BinaryTreeNode(13);
-		heightBalancedTree.root.right.right.right = new BinaryTreeNode(14);
-		heightBalancedTree.root.right.right.right.left = new BinaryTreeNode(15);
-		heightBalancedTree.root.right.right.right.right = new BinaryTreeNode(16);
-		heightBalancedTree.root.left.left.right.left = new BinaryTreeNode(17);
-		heightBalancedTree.root.left.left.right.right = new BinaryTreeNode(18);
+		
+		/*
+		 * heightBalancedTree.root.left.right = new BinaryTreeNode(5);
+		 * heightBalancedTree.root.right.left = new BinaryTreeNode(6);
+		 * heightBalancedTree.root.right.right = new BinaryTreeNode(7);
+		 * heightBalancedTree.root.left.left.left = new BinaryTreeNode(8);
+		 * heightBalancedTree.root.left.left.right = new BinaryTreeNode(9);
+		 * heightBalancedTree.root.left.right.left = new BinaryTreeNode(10);
+		 * heightBalancedTree.root.left.right.right = new BinaryTreeNode(11);
+		 * heightBalancedTree.root.right.left.left = new BinaryTreeNode(12);
+		 * heightBalancedTree.root.right.left.right = new BinaryTreeNode(13);
+		 * heightBalancedTree.root.right.right.right = new BinaryTreeNode(14);
+		 * heightBalancedTree.root.right.right.right.left = new BinaryTreeNode(15);
+		 * heightBalancedTree.root.right.right.right.right = new BinaryTreeNode(16);
+		 * heightBalancedTree.root.left.left.right.left = new BinaryTreeNode(17);
+		 * heightBalancedTree.root.left.left.right.right = new BinaryTreeNode(18);
+		 */
 		
 		boolean isHeightBalanced = heightBalancedTree.isHeightBalanced(heightBalancedTree.root);
 		System.out.println(isHeightBalanced);

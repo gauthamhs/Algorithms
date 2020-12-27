@@ -26,20 +26,7 @@ public class IncrementInteger {
 		integerArray.add(9);
 		integerArray.add(9);
 		List<Integer> intArr = addInteger(integerArray);
-		System.out.println(printArray(intArr));
+		System.out.println(intArr);
 	}
-	
-	public static String printArray(List<Integer> arrayOfIntegers){
-
-		StringBuilder sb = new StringBuilder("");
-		for(int i = 0;i<=arrayOfIntegers.size()-1;i++){
-		sb.append(arrayOfIntegers.get(i));
-		if(i<arrayOfIntegers.size() - 1){
-		sb.append(", ");
-		}
-		}
-		return sb.toString();
-
-		}
 	
 }

@@ -9,31 +9,33 @@ public class MaximumConsecutiveRepeatingCharacter {
 	
 	public static Character maximumConsecutiveCharOccurrence(String sequence) {
 		
-		if(sequence==null || sequence.isEmpty()){
+		if(sequence.length()==0) {
 			return null;
 		}
-		int count = 0;
-		Character ch = null;
-		int currentCount = 1;
+		
+		int maxCount = 1;
+		Character maxChar = sequence.charAt(0);
 		
 		for(int i=0;i<sequence.length();i++) {
-			if(i+1<sequence.length() && sequence.charAt(i)==sequence.charAt(i+1)) {
-				currentCount++;
-			} else {
-				if(currentCount>count) {
-					count = currentCount;
-					ch = sequence.charAt(i);
-			    }
+			int currentCount = 1;
 			
-				currentCount = 1;
+			while(i+1<sequence.length() && sequence.charAt(i)==sequence.charAt(i+1)) {
+				++currentCount;
+				++i;
 			}
+			
+			if(currentCount>maxCount) {
+				maxCount = currentCount;
+				maxChar=sequence.charAt(i);
+			}
+			
 		}
 		
-		return ch;
+		return maxChar;
 	}
 	
 	public static void main(String[] args) {
-		String sequence = "aabbaaaccccdee";
+		String sequence = "aabbaaaaaccccdee";
 		Character ch = maximumConsecutiveCharOccurrence(sequence);
 		System.out.println(ch);
 		

@@ -1,5 +1,7 @@
 package algorithms.sort.extras;
 
+import java.util.Arrays;
+
 public class SearchOccurrences {
 	
 	 public static int[] searchRange(int[] nums, int target) {
@@ -62,7 +64,7 @@ public class SearchOccurrences {
 	    	int secondPosition = lastPosition(nums, 8);
 	    	System.out.println(firstPosition);
 	    	System.out.println(secondPosition);
-			int[] result = searchRange(nums, 8);
+			String result = Arrays.toString(searchRange(nums, 8));
 			System.out.println(result);
 		}
 

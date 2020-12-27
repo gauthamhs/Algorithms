@@ -1,6 +1,7 @@
 package algorithms.datastructures.heaps;
 
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.PriorityQueue;
 
 public class KclosestPointsToOrigin {
@@ -9,43 +10,60 @@ public class KclosestPointsToOrigin {
     	
     	int[][] closestPoints = new int[K][2];
     	
-    	PriorityQueue<int[]> maxHeap = 
-    			new PriorityQueue<>((a,b)-> b[0]*b[0] + b[1]*b[1] - (a[0]*a[0] + a[1]*a[1]));
+    	Comparator<int[]> distanceComparator = (a,b)->{
+    		return ((b[0]*b[0] + b[1]*b[1]) - (a[0]*a[0] + a[1]*a[1])); 
+    	};
     	
-    	for(int[] p : points) {
-    		maxHeap.add(p);
+    	
+    	PriorityQueue<int[]> maxHeap = new PriorityQueue<>(distanceComparator);
+    	
+    	int i=0;
+    	while(i<points.length) {
+    		maxHeap.add(points[i]);
+    		
     		if(maxHeap.size()>K) {
     			maxHeap.remove();
     		}
+    		++i;
     	}
-    	int i=0;
     	
+    	int j=0;
     	while(!maxHeap.isEmpty()) {
-    		closestPoints[i] = maxHeap.remove();
-    		i++;
+    		closestPoints[j]=maxHeap.remove();
+    		++j;
     	}
-    
-		return closestPoints;
+    	
+    	return closestPoints;
+
         
     }
     
     public static int[][] kClosestVertex(int[][] points, int K, int[] v) {
     	
     	int[][] closestPoints = new int[K][2];
+    	
+    	Comparator<int[]> distanceComparator = (a,b) -> {
+    	
     		
+    		return ((int)(Math.pow(b[0]-v[0], 2) + Math.pow(b[1]-v[1], 2) - (Math.pow(a[0]-v[0], 2) + Math.pow(a[1]-v[1], 2))));
+    		
+    	};
+    		 
     	
-    	PriorityQueue<int[]> maxHeap = 
-    			new PriorityQueue<>(
-    		(a,b)->(int)(Math.pow(b[0]-v[0], 2) + Math.pow(b[1]-v[1], 2) - (Math.pow(a[0]-v[0], 2) + Math.pow(a[1]-v[1], 2))));
+    	PriorityQueue<int[]> maxHeap = new PriorityQueue<>(distanceComparator);
     	
-    	for(int[] p : points) {
-    		maxHeap.add(p);
+    	int i=0;
+    	while(i<points.length) {
+    		maxHeap.add(points[i]);
+    		
     		if(maxHeap.size()>K) {
     			maxHeap.remove();
     		}
+    		
+    		++i;
     	}
-    	int i=0;
     	
+    	i=0;
     	while(!maxHeap.isEmpty()) {
     		closestPoints[i] = maxHeap.remove();
     		i++;

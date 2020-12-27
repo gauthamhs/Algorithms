@@ -30,7 +30,7 @@ public class MeetingTimes {
 	
 	// 1) We sort startTimes in ascending order since we are interested in the meetings earlier in the day to evening meetings.
 	// 2) Next, we try to identify if two meetings overlap. We do this by checking the start time of the next meeting with the earliest
-	// end time of the previous meetings. If its not available, then no other rooms are available. So, we Book a new room.
+	// end time of the previous meetings. If its not available, then no other rooms are available. So, we Book a new room and add the endTime to minHeap.
 	// 3) If the meetings dont overlap, we use the same meeting room for our conference. However, we replace the current end time with
 	// the new endTime since the previous meeting ended.
 	// 4) We can use MinHeap to record the earliest end time by using a priorityQueue.

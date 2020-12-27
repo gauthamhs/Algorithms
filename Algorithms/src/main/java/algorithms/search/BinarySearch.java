@@ -17,6 +17,8 @@ Here are some of the following conditions:
 to the right half of the elements and set the lastIndex = midIndex-1.
 3) If the element at midIndex is lesser than searched value, we need to eliminate the elements from firstIndex 
    to the midIndex and set firstIndex = midIndex + 1;
+   
+   Time Complexity: O(log(n))
 */
 
 public int binarySearch(int[] arrayInt, int value){

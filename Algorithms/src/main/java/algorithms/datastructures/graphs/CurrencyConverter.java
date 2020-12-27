@@ -56,8 +56,7 @@ public class CurrencyConverter {
 			dp[fromCurrencyValue][toCurrencyValue] = currency.rate;
 			dp[toCurrencyValue][fromCurrencyValue] = 1/(currency.rate);
 		}
-		
-		for(int i=currencyNotes.size()-2;i>=0;i--) {
+		for(int i=currencyNotes.size()-1;i>=0;i--) {
 			for(int j= i+1;j<dp[0].length;j++) {
 				dp[i][j] = dp[i][j-1]*dp[i+1][j]/(dp[i+1][j-1]);
 				dp[j][i] = 1/dp[i][j];

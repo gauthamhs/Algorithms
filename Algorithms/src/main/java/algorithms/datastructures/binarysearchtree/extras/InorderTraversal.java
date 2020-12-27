@@ -3,26 +3,11 @@ package algorithms.datastructures.binarysearchtree.extras;
 import java.util.ArrayDeque;
 import java.util.Deque;
 
-class BinaryTreeNode{
-	
-	int data;
-	BinaryTreeNode left;
-	BinaryTreeNode right;
-	
-	public BinaryTreeNode(int data) {
-		super();
-		this.data = data;
-		this.left = this.right = null;
-	}
-	
-	@Override 
-	public String toString() {
-		return Integer.toString(this.data);
-	}
-}
 
 
 public class InorderTraversal {
+	
+	
 	
 /*	InOrder Traversal prints the tree in the following order: 
 		

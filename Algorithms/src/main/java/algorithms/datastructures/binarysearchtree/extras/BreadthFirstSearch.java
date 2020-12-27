@@ -112,6 +112,43 @@ public class BreadthFirstSearch {
 		}
 	}
 	
+    public List<List<Integer>> levelOrder(BinaryTreeNode root) {
+        
+        List<List<Integer>> result = new ArrayList<>();
+        if(root==null){
+            return result;
+        }
+        
+        Deque<BinaryTreeNode> queue = new ArrayDeque<>();
+        queue.add(root);
+        int level = 0;
+        
+        while(!queue.isEmpty()){
+            
+            result.add(new ArrayList<Integer>());
+            
+            int size = queue.size();
+            
+            for(int i=0;i<size;i++){
+                root = queue.remove();
+                result.get(level).add(root.data);
+                
+                if(root.left!=null){
+                    queue.add(root.left);
+                }
+                if(root.right!=null){
+                    queue.add(root.right);
+                }
+            }
+            
+            ++level;
+            
+        }
+        
+        
+        return result;
+    }
+	
 	public static void main(String[] args) {
 		BreadthFirstSearch breadthFirstSearch = new BreadthFirstSearch();
 		breadthFirstSearch.root = new BinaryTreeNode(314);
@@ -131,6 +168,9 @@ public class BreadthFirstSearch {
 		List<List<Integer>> listByLevel = breadthFirstSearch.levelOrderTraversalListByLevel(breadthFirstSearch.root);
 		System.out.println();
 		System.out.println("List by Level: " + listByLevel);
+		
+		List<List<Integer>> levelOrder = breadthFirstSearch.levelOrder(breadthFirstSearch.root);
+		System.out.println("Level Order: " + levelOrder);
 		
 		// Left Side view
 		

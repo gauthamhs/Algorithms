@@ -8,7 +8,10 @@ public class AlternateArrayValues {
 	
 /*	In alternating arrays, we swap array elements such that the following property is satisfied: 
 	A[0]<=A[1]>=A[2]<=A[3]
+	We need to check based on the modulo to see if the index is odd or even
 	hint: if index is odd: check if A[0] is greater than A[1] else lesser if even;
+	
+	Time Complexity: O(n)
 	*/
 	
 	public static List<Integer> alternateArrayValues(List<Integer> integerArray){

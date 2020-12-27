@@ -81,6 +81,27 @@ public class BoundaryTraversal {
 		 *        
 		 */
 		
+		/*
+		 * BoundaryTraversal boundaryTraversal = new BoundaryTraversal();
+		 * boundaryTraversal.root = new BinaryTreeNode(1); boundaryTraversal.root.left =
+		 * new BinaryTreeNode(2); boundaryTraversal.root.right = new BinaryTreeNode(3);
+		 * boundaryTraversal.root.left.left = new BinaryTreeNode(4);
+		 * boundaryTraversal.root.left.right = new BinaryTreeNode(5);
+		 * boundaryTraversal.root.right.left = new BinaryTreeNode(6);
+		 * boundaryTraversal.root.right.right = new BinaryTreeNode(7);
+		 * boundaryTraversal.root.left.left.left = new BinaryTreeNode(8);
+		 * boundaryTraversal.root.left.left.right = new BinaryTreeNode(9);
+		 * boundaryTraversal.root.left.right.left = new BinaryTreeNode(10);
+		 * boundaryTraversal.root.left.right.right = new BinaryTreeNode(11);
+		 * boundaryTraversal.root.right.left.left = new BinaryTreeNode(12);
+		 * boundaryTraversal.root.right.left.right = new BinaryTreeNode(13);
+		 * boundaryTraversal.root.right.right.right = new BinaryTreeNode(14);
+		 * boundaryTraversal.root.right.right.right.left = new BinaryTreeNode(15);
+		 * boundaryTraversal.root.right.right.right.right = new BinaryTreeNode(16);
+		 * boundaryTraversal.root.left.left.right.left = new BinaryTreeNode(17);
+		 * boundaryTraversal.root.left.left.right.right = new BinaryTreeNode(18);
+		 */
+		
 		BoundaryTraversal boundaryTraversal = new BoundaryTraversal();
 		boundaryTraversal.root = new BinaryTreeNode(1);
 		boundaryTraversal.root.left = new BinaryTreeNode(2);
@@ -88,18 +109,10 @@ public class BoundaryTraversal {
 		boundaryTraversal.root.left.left = new BinaryTreeNode(4);
 		boundaryTraversal.root.left.right = new BinaryTreeNode(5);
 		boundaryTraversal.root.right.left = new BinaryTreeNode(6);
-		boundaryTraversal.root.right.right = new BinaryTreeNode(7);
-		boundaryTraversal.root.left.left.left = new BinaryTreeNode(8);
-		boundaryTraversal.root.left.left.right = new BinaryTreeNode(9);
-		boundaryTraversal.root.left.right.left = new BinaryTreeNode(10);
-		boundaryTraversal.root.left.right.right = new BinaryTreeNode(11);
-		boundaryTraversal.root.right.left.left = new BinaryTreeNode(12);
-		boundaryTraversal.root.right.left.right = new BinaryTreeNode(13);
-		boundaryTraversal.root.right.right.right = new BinaryTreeNode(14);
-		boundaryTraversal.root.right.right.right.left = new BinaryTreeNode(15);
-		boundaryTraversal.root.right.right.right.right = new BinaryTreeNode(16);
-		boundaryTraversal.root.left.left.right.left = new BinaryTreeNode(17);
-		boundaryTraversal.root.left.left.right.right = new BinaryTreeNode(18);
+		boundaryTraversal.root.left.left.left = new BinaryTreeNode(7);
+		boundaryTraversal.root.left.left.right = new BinaryTreeNode(8);
+		boundaryTraversal.root.left.right.left = new BinaryTreeNode(9);
+		boundaryTraversal.root.left.right.right = new BinaryTreeNode(10);
 		
 		boundaryTraversal.printBoundary(boundaryTraversal.root);
 		

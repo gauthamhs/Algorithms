@@ -54,7 +54,7 @@ public class MergeKSortedArrays {
 		list1.add(6);
 		list1.add(8);
 		list1.add(10);
-		list1.add(1);
+		list1.add(19);
 		
 		list2.add(0);
 		list2.add(5);

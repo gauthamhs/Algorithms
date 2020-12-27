@@ -21,9 +21,9 @@ public class CellList
                 cellList.set(i,states[i+1]^states[i-1]);
             }
         }
-     for(int i=0;i<length;i++) {
-    	 states[i] = cellList.get(i);
-     }
+		/*
+		 * for(int i=0;i<length;i++) { states[i] = cellList.get(i); }
+		 */
      
      
      return cellList;

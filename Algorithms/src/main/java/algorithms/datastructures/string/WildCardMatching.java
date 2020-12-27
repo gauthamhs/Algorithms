@@ -12,8 +12,11 @@ public class WildCardMatching {
         boolean[][] wildcardMatrix = new boolean[s.length()+1][p.length()+1];
         wildcardMatrix[0][0]=true;
         
-        if(p.charAt(0)=='*') {
-        	wildcardMatrix[0][1] = true;
+
+        for(int i=1;i<wildcardMatrix[0].length;i++) {
+        	if(p.charAt(i-1)=='*') {
+        		wildcardMatrix[0][i] = wildcardMatrix[0][i-1];
+        	}
         }
         
         for(int i=1;i<=s.length();i++) {
@@ -33,6 +36,8 @@ public class WildCardMatching {
 		
 		boolean isMatch = isMatch("xlypmsz", "x?y*z");
 		System.out.println(isMatch);
+		boolean isMatch2 = isMatch("a", "**a*");
+		System.out.println(isMatch2);
 		
 	}
 

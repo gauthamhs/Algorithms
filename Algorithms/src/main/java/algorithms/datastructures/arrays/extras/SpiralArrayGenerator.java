@@ -22,7 +22,7 @@ public class SpiralArrayGenerator {
 		int nextX = x + MASK[dir][0];
 		int nextY = y + MASK[dir][1];
 		
-		if(nextX<0 || nextX>=size || nextY<0 || nextY>=size || isVisitedArray[nextX][nextY]==true ) {
+		if(nextX<0 || nextX>=size || nextY<0 || nextY>=size || isVisitedArray[nextX][nextY]) {
 			dir = (dir+1)%4;
 			nextX = x + MASK[dir][0];
 			nextY = y + MASK[dir][1];
@@ -41,7 +41,7 @@ public class SpiralArrayGenerator {
 	
 	public static void main(String[] args) {
 		
-		int size = 9;
+		int size = 3;
 		
 		int[][] spiralArray = generateSpiralArray(size);
 		//System.out.println(Arrays.deepToString(spiralArray));
