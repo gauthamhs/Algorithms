@@ -22,10 +22,11 @@ class GenerateUniqueEmailAddress {
             	}
             	sb.append(c);
             }
+            sb.append('@');
             sb.append(domainName);
             System.out.println(sb.toString());
             
-            emailSet.add(sb.append(domainName).toString());
+            emailSet.add(sb.toString());
         }
         
         return emailSet.size();

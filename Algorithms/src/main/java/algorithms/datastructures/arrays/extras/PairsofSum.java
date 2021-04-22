@@ -1,6 +1,7 @@
 package algorithms.datastructures.arrays.extras;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
@@ -10,21 +11,18 @@ public class PairsofSum {
 		List<List<Integer>> pairOfSumsList = new ArrayList<>();
 		Collections.sort(integerArray);
 		
-		int startIndex = 0;
-		int lastIndex = integerArray.size()-1;
+		int i = 0;
+		int j = integerArray.size()-1;
 		
-		while(startIndex<lastIndex) {
+		while(i<j) {
 			
-			if((integerArray.get(startIndex) + integerArray.get(lastIndex)<sum)){
-				startIndex++;
-			} else if ((integerArray.get(startIndex) + integerArray.get(lastIndex)>sum)) {
-				lastIndex--;
+			if((integerArray.get(i) + integerArray.get(j)<sum)){
+				i++;
+			} else if ((integerArray.get(i) + integerArray.get(j)>sum)) {
+				j--;
 			} else {
-				List<Integer> pair = new ArrayList<>();
-				pair.add(integerArray.get(startIndex));
-				pair.add(integerArray.get(lastIndex));
-				pairOfSumsList.add(pair);
-				startIndex++; // You could either increment startIndex or decrement EndIndex.
+				pairOfSumsList.add(Arrays.asList(i,j));
+				i++; // You could either increment startIndex or decrement EndIndex.
 			}
 			
 		}

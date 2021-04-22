@@ -32,7 +32,7 @@ public class InsertionSortTest {
 	
 	@Test
 	public void testInsertionSort() {
-		int[] arrayOfIntegers = {5,1,4,3,6,7};
+		int[] arrayOfIntegers = {5,1,4,3,6,7,11,34,5};
 		int[] arrayOfIntegersSorted = insertionSort.insertionSort(arrayOfIntegers);
 		System.out.println(printArray(arrayOfIntegersSorted));
 		

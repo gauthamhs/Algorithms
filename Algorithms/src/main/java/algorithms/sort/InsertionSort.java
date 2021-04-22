@@ -28,25 +28,24 @@ public class InsertionSort {
     
     It works on a key algorithm. key = A[i], and j precedes it. If (A[j]>key) keep sorting and change the key to the lowest val;
 	*/
-	public int[] insertionSort(int[] arrayOfIntegers) {
+	public int[] insertionSort(int[] arr) {
 		
-		int i,j = 0;
-		int temp = 0;
-		for (i = 1; i < arrayOfIntegers.length; i++) {
-			int key = arrayOfIntegers[i];
-			j = i-1;
-			while (j>=0 && arrayOfIntegers[j] > key) {
-				temp = arrayOfIntegers[j];
-				arrayOfIntegers[j] = arrayOfIntegers[j+1];
-				arrayOfIntegers[j+1] = temp;
-				key = arrayOfIntegers[j];
-				j--;
+		for(int i=1;i<arr.length;i++) {
+			int j=i;
+			while(j>0&&arr[j-1]>arr[j]) {
+				swap(arr, j, j-1);
+				j = j-1;
 			}
-			
 		}
 		
-		return arrayOfIntegers;
+		return arr;
 			
+	}
+	
+	public void swap(int[] arr, int i, int j) {
+		int temp = arr[i];
+		arr[i]=arr[j];
+		arr[j]=temp;
 	}
 
 }

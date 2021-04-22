@@ -33,6 +33,29 @@ public class BinaryTreeDiameter {
 		
 	}
 	
+	// Binary Tree Diameter can also be calculated by tracking the diameter for each node and getting the max value tracked so far. Diameter for each node would be leftHeight+rightHeight+1;
+	int diameter = 0;
+	int binaryTreeDiameterEfficient(BinaryTreeNode root) {
+		height(root);
+		return diameter;
+	}
+	
+	int height(BinaryTreeNode root) {
+		
+		if(root==null) {
+			return 0; 
+		}
+		
+		int leftHeight = height(root.left);
+		int rightHeight = height(root.right);
+		
+		diameter = Math.max(diameter, leftHeight + rightHeight + 1);
+		
+		return 1 + Math.max(leftHeight, rightHeight);
+	}
+	
+	
+	
 	public static void main(String[] args) {
 		
 		BinaryTreeDiameter diameterRoot = new BinaryTreeDiameter();
@@ -74,6 +97,9 @@ public class BinaryTreeDiameter {
 		
 		int diameterWithoutRootVal = diameterRoot.binaryTreeDiameter(diameterWithoutRoot.root);
 		System.out.println(diameterWithoutRootVal);
+		
+		int diameterEfficient = diameterRoot.binaryTreeDiameterEfficient(diameterWithoutRoot.root);
+		System.out.println(diameterEfficient);
 		
 		
 		

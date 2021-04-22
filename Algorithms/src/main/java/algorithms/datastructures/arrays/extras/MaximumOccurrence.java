@@ -25,12 +25,11 @@ public class MaximumOccurrence {
 		
 		
 		
-		for(Entry<Integer, Long> entries : maxOccurrenceCountMap.entrySet()) {
-			int element = entries.getKey();
-			Long occurrence = entries.getValue();
+		for(Integer key : maxOccurrenceCountMap.keySet()) {
+			Long occurrence = maxOccurrenceCountMap.get(key);
 			if(occurrence>count) {
 				count = occurrence;
-				maxItem = element;
+				maxItem = key;
 			}
 		}
 		

@@ -27,10 +27,10 @@ public class FindAnagrams {
 	
 	// Using Hashing Weight
 	public static List<List<String>> findAnagramsUsingHashing(String[] words){
-		Map<Integer, List<String>> anagramMap = new HashMap<>();
+		Map<String, List<String>> anagramMap = new HashMap<>();
 		
 		for(String word: words) {
-			int id = FindStringWeight.findStringWeight(word);
+			String id = FindStringWeight.findStringWeight(word);
 			anagramMap.putIfAbsent(id, new ArrayList<>());
 			anagramMap.get(id).add(word);
 		}

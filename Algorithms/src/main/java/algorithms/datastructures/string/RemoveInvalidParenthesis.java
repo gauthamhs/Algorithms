@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Queue;
 import java.util.Set;
 
-public class RemoveInvalidParanthesis {
+public class RemoveInvalidParenthesis {
 	
     public static List<String> removeInvalidParentheses(String s) {
     	

@@ -2,6 +2,8 @@ package algorithms.sort.extras;
 
 public class SearchInSortedRotatedArray {
 	
+	//Note if there are duplicates, then we need to add an additional condition for a[start]==a[mid]==a[length], where we either increment ++left or --right;
+	
 	public static int searchInRotatedArray(int[] nums, int target) {
 		
 		int low = 0;
@@ -26,7 +28,7 @@ public class SearchInSortedRotatedArray {
 			
 				// If that is not sorted, then right half is sorted.
 			} else { 
-				if(target>nums[mid] && target<=nums[high]) {
+				if(target>=nums[mid] && target<=nums[high]) {
 					low = mid+1;
 				} else {
 					high = mid-1;

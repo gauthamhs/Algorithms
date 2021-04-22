@@ -25,15 +25,14 @@ public class DeleteDuplicateFromSortedArray {
 	public static List<Integer> deleteDuplicateElements2(List<Integer> integerArray){
 
 		int j = 0;
-		for(int i = 0;i<integerArray.size()-1;i++) {
+		for(int i = 0;i<integerArray.size()-1;i++) { 
 			if(integerArray.get(i) != integerArray.get(i+1)) {
-				integerArray.set(j, integerArray.get(i));
-				j++;
+				integerArray.set(j++, integerArray.get(i));
 			}
 		}
 
-		integerArray.set(j, integerArray.get(integerArray.size()-1));
-		return integerArray.subList(0, j+1);
+		integerArray.set(j++, integerArray.get(integerArray.size()-1));
+		return integerArray.subList(0, j);
 	}
 	
 	public static List<Integer> deleteElementBasedOnKey(List<Integer> integerArray, int key){

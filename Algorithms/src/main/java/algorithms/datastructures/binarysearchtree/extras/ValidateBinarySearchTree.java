@@ -18,7 +18,8 @@ Space Complexity: O(n). We are storing the values in the recursive stack based o
 Questions to ask the interviewer: 
 
 1) What would be the type of data/value for the nodes in the BST
-2) Could I use a recursive stack ?
+2) Could I use a recursive stack 
+3) Should keys be strictly lesser or greater than the node
 
 */
 

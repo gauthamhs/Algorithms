@@ -33,38 +33,41 @@ public class FriendsCircles {
 	
 	
 	
-	  static void dfsVisited(int[][] M, int[] visitedFriends, int i) {
+	  static void dfsVisited(int[][] M,  int i, boolean[] visited) {
+		  
+		  if(visited[i]) return;
+		  visited[i]=true;
 		  
 		  for(int j=0;j<M.length;j++) {
-			  if(M[i][j]==1 && visitedFriends[j]==0) {
-				  visitedFriends[j]=1;
-				  dfsVisited(M,visitedFriends,j);
+			  if(!visited[j] && M[i][j]==1) {
+				  dfsVisited(M, j, visited);
 			  }
 		  }
-		  
 		  
 	  }
 		  
 	    public static int findCircleNum(int[][] M) {
 	    	
 	    	int friendsCircle = 0;
-	    	int[] visitedFriends = new int[M.length];
+	    	boolean[] visited = new boolean[M.length];
 	    	
 	    	for(int i=0;i<M.length;i++) {
-	    		if(visitedFriends[i]==0) {
-	    			dfsVisited(M,visitedFriends,i);
+	    		if(!visited[i]) {
+	    			dfsVisited(M, i, visited);
 	    			++friendsCircle;
 	    		}
-	    }
+	    	}
+	    	
 	    	
 	    	return friendsCircle;
+
 	    }
 	
 	public static void main(String[] args) {
-		int[][] M = {{1,0,0,1},
-				     {0,1,1,0},
-				     {0,1,1,1},
-				     {1,0,1,1}};
+		int[][] M = {{1,0,0,0},
+				     {0,1,0,0},
+				     {0,0,1,0},
+				     {0,0,0,1}};
 		
 		int friends = findCircleNum(M);
 		System.out.println(friends);

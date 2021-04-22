@@ -39,12 +39,12 @@ public class SpreadsheetEncoding {
 		int spreadsheetEncodedValue = spreadsheetEncoding(column);
 		System.out.println(spreadsheetEncodedValue);
 		
-		String column2 = "AB";
+		String column2 = "ZZ";
 		
 		int spreadsheetEncodedValueA0 = spreadsheetEncodingA0(column2);
 		System.out.println(spreadsheetEncodedValueA0);
 		
-		int decodeVal = 27;
+		int decodeVal = 702;
 		String stringVal = spreadsheetDecoding(decodeVal);
 		System.out.println(stringVal);
 	}

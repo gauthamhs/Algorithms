@@ -1,6 +1,8 @@
 package algorithms.sort.extras;
 
+import java.util.ArrayDeque;
 import java.util.Arrays;
+import java.util.Deque;
 
 public class SquareOfSortedArrays {
 	
@@ -26,11 +28,35 @@ public static int[] sortedSquares(int[] A) {
         return B;
         
     }
+
+public static int[] sortedSquaresStack(int[] A) {
+	Deque<Integer> stack = new ArrayDeque<>();
+	int[] result = new int[A.length];
+	
+	int i=0;
+	while(A[i]<0) {
+		stack.addFirst(A[i]);
+		i++;
+	}
+	int k=0;
+	while(i<A.length) {
+		if(stack.isEmpty() || Math.abs(stack.peek())>A[i]) {
+			result[k++] = A[i]*A[i];
+			i++;
+		}else {
+			Integer element = stack.removeFirst();
+			result[k++] = element*element;
+		}
+	}
+	
+	return result;
+}
 	
 	public static void main(String[] args) {
 		int[] array = {-7,-3,2,3,11};
 		int[] squaredArray = sortedSquares(array);
 		System.out.println(Arrays.toString(squaredArray));
+		System.out.println(Arrays.toString(sortedSquaresStack(array)));
 	}
 
 }

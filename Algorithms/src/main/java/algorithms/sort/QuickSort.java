@@ -1,6 +1,6 @@
 package algorithms.sort;
 
-import java.util.Collections;
+import java.util.Arrays;
 
 /*Quick Sort:
 
@@ -32,57 +32,50 @@ Quick sort is in-place as its space efficient, but not stable(relative ordering 
 
 public class QuickSort {
 	
-	public int[] quickSort(int[] A) {
+	public static int[] quickSort(int[] A) {
 		return quickSort(A, 0, A.length-1);
 	}
 	
-	public int[] quickSort(int[] A, int low, int high){
+	public static int[] quickSort(int[] A, int low, int high){
 
 		if(low>=high){
 			return A;
-		}else{
+		}
 		
 		int pivot = partition(A, low, high);
 		quickSort(A, low, pivot-1);
 		quickSort(A, pivot+1, high);
 		
 		return A;
-		}
 	}
 	
-	public int partition(int[] A, int low, int high){
+	public static int partition(int[] A, int low, int high){
+		int pivot = high;
 		
-
-		int pivot = A[high];
-		//int pivotElement = ((int)Math.random()*(high-low) + 1) + low;
-		//int pivotRandom = A[pivotElement];
-		
-		int i=low;
-		int j=high;
-		
-		//Keep running the low until the two indices meet
-		while(i<=j) {
-			//If A[i] is smaller than pivot, we need to move the index as this is already in place
-			while(A[i]<pivot) {
-				++i;
-			}
-			//If A[j] is greater/equal to pivot, do nothing as its already in place
-			while(A[j]>=pivot) {
-				--j;
-			}
-			if(i<=j) { // This condition is needed if j goes below i. If i<j, we can swap i and j and keep moving until two indices meet
-			int temp = A[j];
-			A[j]=A[i];
-			A[i]=temp;
+		int idx = low;
+		for(int i=low;i<high;i++) {
+			if(A[i]<=A[pivot]) {
+				swap(A,i,idx);
+				idx++;
 			}
 		}
 		
-		//Once the loop is complete, swap the pivot element with A[low] and return low as the pivot index
-		int temp = A[i];
-		A[i]=pivot;
-		A[high]=temp;
-		return i;	
+		swap(A,pivot,idx);
+		
+		return idx;
+		
 			
+	}
+	
+	public static void swap(int[] arr, int i, int j) {
+		int temp = arr[i];
+		arr[i] = arr[j];
+		arr[j] = temp;
+	}
+	
+	public static void main(String[] args) {
+		int[] arrayOfIntegers = {9,7,5,10,6};
+		System.out.println(Arrays.toString(quickSort(arrayOfIntegers)));
 	}
 
 }

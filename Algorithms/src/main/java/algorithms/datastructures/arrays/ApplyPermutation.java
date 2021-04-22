@@ -5,6 +5,7 @@ import java.util.Collections;
 import java.util.List;
 
 
+
 public class ApplyPermutation {
 	
 	/*For apply permutation program, we apply permutation to rearrange a sequence of arrays into a new sequence

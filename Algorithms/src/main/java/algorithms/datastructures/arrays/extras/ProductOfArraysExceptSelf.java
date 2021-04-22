@@ -12,7 +12,7 @@ public class ProductOfArraysExceptSelf {
 		int left = 1;
 		
 		for(int i=0;i<nums.length;i++) {
-			productArray[i] = left;
+			productArray[i] = productArray[i]*left;
 			left = left*nums[i];
 		}
 		

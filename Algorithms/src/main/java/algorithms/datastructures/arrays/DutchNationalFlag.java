@@ -1,6 +1,7 @@
 package algorithms.datastructures.arrays;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
@@ -43,6 +44,35 @@ public class DutchNationalFlag {
 		
 	}
 	
+	public static int[] dNF(int[] nums) {
+		
+		int i=0;
+		int low=0;
+		int high = nums.length-1;
+		
+		while(i<high) {
+			switch(nums[i]) {
+			case 0: swap(nums,i,low);
+			        i++;low++;break;
+			
+			case 1: i++;
+			        break;
+			    
+			case 2: swap(nums, i, high);
+			        high--;break;
+			        
+			}
+		}
+		
+		return nums;
+	}
+	
+	public static void swap(int[] nums,int i, int j) {
+		int temp = nums[i];
+		nums[i] = nums[j];
+		nums[j] = temp;
+	}
+	
 	public static void main(String[] args) {
 		DutchNationalFlag dutchNationalFlag = new DutchNationalFlag();
 		List<Integer> integerArray = new ArrayList<>();
@@ -67,6 +97,8 @@ public class DutchNationalFlag {
 		System.out.println(pivot);
 		
 		System.out.println(printArray(sortedList));
+		
+		System.out.println(Arrays.toString(dNF(intArray)));
 	}
 	
 

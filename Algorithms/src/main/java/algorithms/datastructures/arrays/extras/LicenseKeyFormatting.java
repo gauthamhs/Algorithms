@@ -36,7 +36,7 @@ class LicenseKeyFormatting {
     }
     
     public static void main(String[] args) {
-		String licenseKeyFormatting = licenseKeyFormatting("2-4A0r7-4k", 4);
+		String licenseKeyFormatting = licenseKeyFormatting("--a-a-a-a--", 2);
 		System.out.println(licenseKeyFormatting);
 	}
 }

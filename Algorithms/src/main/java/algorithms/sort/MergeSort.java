@@ -1,5 +1,9 @@
 package algorithms.sort;
 
+import java.util.ArrayDeque;
+import java.util.Arrays;
+import java.util.Deque;
+
 /*Implementation: Merge sort is a general purpose, efficient sorting algorithm that works on the 
   divide-and-conquer paradigm.
   
@@ -23,18 +27,19 @@ package algorithms.sort;
 
 public class MergeSort {
 
-	public int[] mergeSort(int[] arrayOfIntegers, int firstIndex, int lastIndex) {
+	public static int[] mergeSort(int[] arr, int first, int last) {
 
-		if (firstIndex >= lastIndex) {
-			return arrayOfIntegers;
+		if (first >= last) {
+			return arr;
 		}
 
-		int midIndex = firstIndex + (lastIndex - firstIndex) / 2;
-		mergeSort(arrayOfIntegers, firstIndex, midIndex);
-		mergeSort(arrayOfIntegers, midIndex + 1, lastIndex);
-		merge(arrayOfIntegers, firstIndex, midIndex, lastIndex);
+		int middle = first + (last - first) / 2;
 
-		return arrayOfIntegers;
+		mergeSort(arr, first, middle);
+		mergeSort(arr, middle + 1, last);
+		merge(arr, first, middle, last);
+
+		return arr;
 
 	}
 
@@ -47,43 +52,53 @@ public class MergeSort {
 	 * 
 	 */
 
-	public int[] merge(int[] arrayOfIntegers, int firstIndex, int midIndex, int lastIndex) {
-
-		int leftArraySize = midIndex - firstIndex + 1;
-		int rightArraySize = lastIndex - midIndex;
-
-		int[] leftArray = new int[leftArraySize];
-		int[] rightArray = new int[rightArraySize];
-
-		for (int i = 0; i < leftArraySize; i++) {
-			leftArray[i] = arrayOfIntegers[firstIndex + i];
+	public static void merge(int[] arr, int first, int middle, int last) {
+		Deque<Integer> firstBucket = new ArrayDeque<>();
+		Deque<Integer> secondBucket = new ArrayDeque<>();
+		
+		for(int i=first;i<=middle;i++) {
+			firstBucket.add(arr[i]);
 		}
-
-		for (int j = 0; j < rightArraySize; j++) {
-			rightArray[j] = arrayOfIntegers[midIndex + 1 + j];
+		
+		for(int j=middle+1;j<=last;j++) {
+			secondBucket.add(arr[j]);
 		}
+		
+		int idx=first;
+		while(!(firstBucket.isEmpty() || secondBucket.isEmpty())){
+			if(firstBucket.peek()<=secondBucket.peek()) {
+				arr[idx++] = firstBucket.remove();
+			}else {
+				arr[idx++] = secondBucket.remove();
+			}
+		}
+		
+		while(!firstBucket.isEmpty()) {
+			arr[idx++]=firstBucket.remove();
+		}
+		
+		while(!secondBucket.isEmpty()) {
+			arr[idx++]=secondBucket.remove();
+		}
+		
+	}
 
-		int k = 0;
-		int l = 0;
+	public static void main(String[] args) {
 
 		
-		  for(int m = firstIndex;m<=lastIndex;m++){
-		  
-			/*
-			 * If there are no more smaller elements in the right array, when we increment
-			 * the pointer, we get an ArrayIndexOutOfBounds Exception. Therefore, we need a
-			 * check to see if there are no more smaller elements in the right array.
-			 */
-			  
-		  if((l>=rightArraySize)||(k<leftArraySize&& leftArray[k]<=rightArray[l])){
-		  arrayOfIntegers[m] = leftArray[k]; k++; } 
-		  else{ arrayOfIntegers[m] =
-		  rightArray[l]; l++; } }
+		  int[] arrayOfIntegers =
+		  {1,2,34,34,25,1,45,3,26,85,4,34,86,25,43,2,1,10000,11,16,19,1,18,4,9,3,20,17,
+		  8,15,6,2,5,
+		  10,14,12,13,7,8,9,1,2,15,12,18,10,14,20,17,16,3,6,19,13,5,11,4,7,19,16,5,9,12
+		  ,3,20,7,15,17,10,6,1,8,
+		  18,4,9,3,20,17,8,15,6,19,13,5,11,4,7,19,16,5,9,12,3,20,7,15,17,10,6,1,8,18,4,
+		  14,13,2,11,11};
 		 
+		int firstIndex = 0;
+		int lastIndex = arrayOfIntegers.length - 1;
+		System.out.println(Arrays.toString(MergeSort.mergeSort(arrayOfIntegers, firstIndex, lastIndex)));
 
-
-		return arrayOfIntegers;
-
+		
 	}
 
 }

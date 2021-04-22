@@ -24,11 +24,6 @@ public class MoveZeroesToRight {
 			}
 		}
 		
-		while(j<length) {
-			tempArray[j] = 0;
-			j++;
-		}
-		
 		return tempArray;
 		
 	}

@@ -1,5 +1,12 @@
 package algorithms.datastructures.binarysearchtree.extras;
 
+
+// To delete a node in BST, we have to do two things: 
+// 1) Find the node that we need to delete
+// 2) Check for 4 conditions: null(node not present), leaf node, node with left subtree,
+//    node with right subtree, node with both trees
+// For nodes with 0, 1 child, its easy to delete them. However, for node with 2 children,
+// we have to find the successor(largest of left subtree or smallest of right subtree)
 public class DeleteNodeInBST {
 	
 	BinaryTreeNode root;

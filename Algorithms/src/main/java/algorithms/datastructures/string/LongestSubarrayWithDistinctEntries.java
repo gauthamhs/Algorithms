@@ -23,7 +23,7 @@ public class LongestSubarrayWithDistinctEntries {
 				maxLength = Math.max(maxLength, rw-lw);
 			}else {
 				charSet.remove(charList[lw]);
-				lw=lw+1;
+				++lw;
 			}
 		}
 		

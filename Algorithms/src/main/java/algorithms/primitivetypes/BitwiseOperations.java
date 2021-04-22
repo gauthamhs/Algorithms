@@ -16,6 +16,8 @@ public class BitwiseOperations {
 			if(n=='1') {
 				val+=1;
 			}
+
+
 		}
 		
 		return val;
@@ -172,8 +174,8 @@ public class BitwiseOperations {
 		long carryBits = 0;
 		
 		while(b!=0) { // If there is no carry propagated to the left, end loop
-			carryBits = (a&b) ; // Determine the bits that needs to be carried over
 			a = a ^ b; //Add a and b without the carry
+			carryBits = (a&b) ; // Determine the bits that needs to be carried over
 			b = carryBits<<1; // Propagate the carry if any
 		}
 		

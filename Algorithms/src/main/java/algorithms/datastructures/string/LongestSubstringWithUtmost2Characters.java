@@ -33,13 +33,14 @@ public class LongestSubstringWithUtmost2Characters {
     		charMap.put(s.charAt(rightWindow), rightWindow);
     		++rightWindow;
     		
-    		if(charMap.size()==3) {
+    		if(charMap.size()>2) {
     			int deleteIndex = Collections.min(charMap.values());
     			charMap.remove(s.charAt(deleteIndex));
     			leftWindow = deleteIndex + 1;
+    		}else {
+        		longestSubString = Math.max(longestSubString, rightWindow-leftWindow);
     		}
     		
-    		longestSubString = Math.max(longestSubString, rightWindow-leftWindow);
     		
     	}
     	

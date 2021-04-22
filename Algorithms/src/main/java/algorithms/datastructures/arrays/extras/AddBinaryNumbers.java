@@ -13,7 +13,7 @@ public class AddBinaryNumbers {
 		
 		StringBuilder sb = new StringBuilder();
 		
-		while(i>=0||j>=0) {
+		while(i>=0||j>=0 || carry!=0) {
 			val1 = (i<0) ? 0 : a.charAt(i)-'0';
 			val2 = (j<0) ? 0 : b.charAt(j)-'0';
 			
@@ -24,10 +24,6 @@ public class AddBinaryNumbers {
 			carry = sum/2;
 			--i;
 			--j;
-		}
-		
-		if(carry==1) {
-			sb.insert(0, carry);
 		}
 		
 		return sb.toString();

@@ -44,7 +44,7 @@ public class ValidIPAddress {
 	public static boolean checkifIPisValid(String ipWord) {
 		String[] tokenizer = ipWord.split("\\.");
 		for (String token : tokenizer) {
-			return isValidIP(token);
+			if(!isValidIP(token)) return false;
 		}
 		
 		return true;

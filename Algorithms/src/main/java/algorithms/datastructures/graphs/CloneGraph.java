@@ -20,26 +20,27 @@ class Vertex{
 // And we use a queue to keep track of the current vertex we are dealing with.
 public class CloneGraph {
 	
-	public static Vertex cloneGraph(Vertex originalVertex) {
+	public static Vertex cloneGraph(Vertex originalNode) {
 		Map<Vertex, Vertex> cloneMap = new HashMap<>();
 		Deque<Vertex> vertexQueue = new ArrayDeque<>();
 		
-		cloneMap.put(originalVertex, new Vertex(originalVertex.data));
-		vertexQueue.add(originalVertex);
+		cloneMap.put(originalNode, new Vertex(originalNode.data));
+		vertexQueue.add(originalNode);
 		
 		while(!vertexQueue.isEmpty()) {
-			Vertex mainVertex = vertexQueue.poll();
-			for(Vertex vertices: mainVertex.edges) {
-				if(cloneMap.putIfAbsent(vertices, new Vertex(vertices.data))==null) {
-					vertexQueue.add(vertices);
+			Vertex root = vertexQueue.poll();
+			for(Vertex neighbor: root.edges) {
+
+				if(!cloneMap.containsKey(neighbor)) {
+				vertexQueue.add(neighbor);
+				cloneMap.put(originalNode, new Vertex(originalNode.data));
 				}
-				
-				cloneMap.get(mainVertex).edges.add(cloneMap.get(vertices));
+				cloneMap.get(root).edges.add(cloneMap.get(neighbor));
 			}
 			
 		}
 		
-		return cloneMap.get(originalVertex);
+		return cloneMap.get(originalNode);
 	}
 	
 	
@@ -47,8 +48,8 @@ public class CloneGraph {
 	public static void main(String[] args) {
 		
 		HashMap<Integer, Integer> maps = new HashMap<>();
-		System.out.println(maps.putIfAbsent(1, 1));
-		System.out.println(maps.putIfAbsent(1, 2));
+		//System.out.println(cloneGraph(originalVertex));
+
 
 		
 	}

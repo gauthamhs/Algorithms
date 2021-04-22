@@ -13,56 +13,61 @@ import java.util.Map;
 
 /*For Topological Sorting, It goes like this: 
  * 
- * We have courses/vertices that are dependent/have outgoing edges to other vertices
- * The one that's having the incoming edge is the dependency, and the one that has the outgoing
- * edge is the dependent. For example: If we have (0,1) (1,2) (2,3), (2,4), First indice is the dependent
- * Second indice is the dependency. First we need to find out 0 degree dependents(the ones that dont have a 
- * dependency). Next we need to have an adjacency list of 
+ * In Topological sorting, we have vertices that is dependent on other vertex to finish a task. 
+ * The algorithm for topological sort is as follows
+ *1) Find the list of vertex that don't have any dependencies/prerequisite(Also called as zero degree)
+ *2) Create an adjacency list based off of the zero degree vertex and the list of dependent vertices
+ *3) Add all the zero-degree vertex and start processing the dependent vertices until they become zero degree
+ *4) Process all the vertices until queue is empty
  * */
 public class TopologicalSorting {
 	
 	public static List<Integer> prerequisitesOrder(int courses, int[][] prerequisites){
+		
 		Deque<Integer> queue = new ArrayDeque<>();
-		List<Integer> orderedCourses = new ArrayList<>();
-		int[] dependencies = new int[courses];
-		
-		
-		// Get the list of Dependencies
-		
-		for(int i=0;i<prerequisites.length;i++) {
-			dependencies[prerequisites[i][0]]++;
-		}
-		
-		System.out.println(Arrays.toString(dependencies));
+		Map<Integer, List<Integer>> adjacencyList = new HashMap<>();
+		Map<Integer, Integer> zeroDegreeMap = new HashMap<>();
+		List<Integer> result = new ArrayList<>();
 		
 		for(int i=0;i<courses;i++) {
-			if(dependencies[i]==0) {
-				orderedCourses.add(i);
-				queue.add(i);
+			adjacencyList.put(i, new ArrayList<>());
+			zeroDegreeMap.put(i, 0);
+		}
+		
+		for(int[] prerequisite : prerequisites) {
+			Integer dependent = prerequisite[0];
+			Integer dependency = prerequisite[1];
+			
+			zeroDegreeMap.put(dependent, zeroDegreeMap.get(dependent)+1);
+			adjacencyList.get(dependency).add(dependent);
+		}
+		
+		for(Integer zeroDegree : zeroDegreeMap.keySet()) {
+			if(zeroDegreeMap.get(zeroDegree)==0) {
+				queue.add(zeroDegree);
+				result.add(zeroDegree);
 			}
 		}
 		
 		while(!queue.isEmpty()) {
+			Integer zeroDegree = queue.remove();
+			List<Integer> dependents = adjacencyList.get(zeroDegree);
 			
-			Integer node = queue.poll();
-			
-			for(int i=0;i<prerequisites.length;i++) {
-				if(node == prerequisites[i][1]) {
-					
-					dependencies[prerequisites[i][0]]--;
-				
-				
-				if(dependencies[prerequisites[i][0]]==0) {
-					orderedCourses.add(prerequisites[i][0]);
-					queue.add(prerequisites[i][0]);
+			for(Integer dependent : dependents) {
+				zeroDegreeMap.put(dependent, zeroDegreeMap.get(dependent)-1);
+				if(zeroDegreeMap.get(dependent)==0) {
+					queue.add(dependent);
+					result.add(dependent);
 				}
-			}
 			}
 		}
 		
-		return (courses==orderedCourses.size()) ? orderedCourses : Collections.emptyList();
+		return (courses==result.size()) ? result : Collections.emptyList();
+		
 		
 	}
+	
+	
 	
 	public static List<Character> prerequisiteTopologicalSorting(int courses, char[][] prerequisites){
 		
@@ -113,6 +118,7 @@ public class TopologicalSorting {
 		return (courses==topologicalSortCharacters.size()) ? topologicalSortCharacters : Collections.emptyList();
 				
 	}
+
 	
 	public static void main(String[] args) {
 		
