@@ -23,7 +23,7 @@ public class LRUCacheDLL {
 	}
 
 	public int getEntry(int key) {
-		if (hashmap.containsKey(key)) // Key Already Exist, just update the
+		if (hashmap.containsKey(key)) // Key Already Exist, just update the existing one
 		{
 			LinkedListNode node = hashmap.get(key);
 			removeNode(node);

@@ -7,7 +7,7 @@ import java.util.Map;
 public class LFUCache {
 	
 	int cap;
-	int min = -1;
+	int min = 1;
 	Map<Integer, Integer> keyValueMap;
 	Map<Integer, Integer> frequencyMap;
 	Map<Integer, LinkedHashSet<Integer>> itemCounterMap;
@@ -35,9 +35,7 @@ public class LFUCache {
 			min++;
 		}
 		
-		if(!itemCounterMap.containsKey(frequency+1)) {
-			itemCounterMap.put(frequency+1, new LinkedHashSet<>());
-		}
+		itemCounterMap.putIfAbsent(frequency+1, new LinkedHashSet<>()); 	
 		itemCounterMap.get(frequency+1).add(key);	
 		
 		return keyValueMap.get(key);
@@ -56,9 +54,9 @@ public class LFUCache {
 		}
 		
 		keyValueMap.put(key, value);
-		frequencyMap.put(key, 1);
-		min = 1;
-		itemCounterMap.get(1).add(key);
+		frequencyMap.put(key, frequencyMap.getOrDefault(key,0)+1);
+		int frequency = frequencyMap.get(key);
+		itemCounterMap.get(frequency).add(key);
 		
 		
 	}
