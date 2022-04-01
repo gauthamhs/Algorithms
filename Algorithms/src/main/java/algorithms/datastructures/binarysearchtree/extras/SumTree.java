@@ -28,12 +28,11 @@ public class SumTree {
 	
 	public int sumTree(BinaryTreeNode root) {
 		
-		int sum = 0;
 		if(root==null) {
 			return 0;
 		}
 		
-		sum = root.data + sumTree(root.left) + sumTree(root.right);
+		int sum = root.data + sumTree(root.left) + sumTree(root.right);
 		
 		return sum;
 		

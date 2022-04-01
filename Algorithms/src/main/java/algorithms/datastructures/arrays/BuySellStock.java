@@ -21,7 +21,6 @@ public class BuySellStock {
 		for (double currentPrice : stockPrices) {
 			minimumPrice = Math.min(currentPrice, minimumPrice);
 			maximumProfit = Math.max(maximumProfit, currentPrice - minimumPrice);
-			
 		}
 		return maximumProfit;
 	}
@@ -88,13 +87,17 @@ public class BuySellStock {
 	//	Collections.reverse(stockPrices1);
 		//Collections.reverse(stockPrices2);
 		
+		// [3,3,5,0,0,3,1,4]
+
+		List<Double> stockPrices3 = new ArrayList<>(List.of(1D,2D,3D,4D,5D));
+		
 		
 		
 		// double maximumProfitForward = maximumProfitByBuyingSellingStockOnceForward(stockPrices1);
 		//double maximumProfitReverse = maximumProfitByBuyingSellingStockOnceReverse(stockPrices2);
 		//System.out.println(maximumProfitForward);
 		//System.out.println(maximumProfitReverse);
-		double maximumProfitTwice = maximumProfitByBuyingAndSellingStockTwice(stockPrices1);
+		double maximumProfitTwice = maximumProfitByBuyingAndSellingStockTwice(stockPrices3);
 		System.out.println(maximumProfitTwice);
 		
 	}

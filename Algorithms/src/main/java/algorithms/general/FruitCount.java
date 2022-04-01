@@ -16,7 +16,8 @@ public class FruitCount {
 		}
 		
 		StringBuilder sb = new StringBuilder();
-		Map<String, Long> fruitMap = fruits.stream().map(i->i.toString()).collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
+		Map<String, Long> fruitMap = fruits.stream()
+		.collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
 		
 		for(Map.Entry<String, Long> entries: fruitMap.entrySet() ) {
 			String fruit = entries.getKey();

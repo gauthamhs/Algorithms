@@ -15,32 +15,28 @@ public class SerializeDeserializeBFS {
 		}
 		
 		StringBuilder sb = new StringBuilder("");
-		//Deque<BinaryTreeNode> treeQueue = new ArrayDeque<>();
 		List<BinaryTreeNode> treeList = new LinkedList<>();
 		treeList.add(root);
-		serializeBinaryTreeHelperBFS(treeList, sb);
+		
+		while(!treeList.isEmpty()) {
+			
+			BinaryTreeNode node = treeList.remove(0);
+			
+			if(node==null) {
+				sb.append("null").append(",");
+			}else {
+				sb.append(node.data).append(",");
+				treeList.add(node.left);
+				treeList.add(node.right);
+			}
+		}
+
 		sb.deleteCharAt(sb.length()-1);
 		return sb.toString();
 	}
 	
 	
-	public static void serializeBinaryTreeHelperBFS(List<BinaryTreeNode> treeList, StringBuilder sb) {
-		
-		while(!treeList.isEmpty()) {
-			
-			BinaryTreeNode root = treeList.remove(0);
-			
-			if(root==null) {
-			sb.append("null,");
-			}
-			else {
-			sb.append(root).append(",");
-			treeList.add(root.left);
-			treeList.add(root.right);
-			}
-			
-		}
-	}
+
 	
 	public static BinaryTreeNode deserializeBinaryTreeBFS(String s) {
 		

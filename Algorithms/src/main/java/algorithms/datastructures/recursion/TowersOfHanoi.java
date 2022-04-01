@@ -25,7 +25,7 @@ public class TowersOfHanoi {
 	
 	public static void main(String[] args) {
 		
-		int noOfRings = 2;
+		int noOfRings = 3;
 		List<List<Integer>> sequence =  towersOfHanoi(noOfRings);
 		System.out.println(sequence);
 	}

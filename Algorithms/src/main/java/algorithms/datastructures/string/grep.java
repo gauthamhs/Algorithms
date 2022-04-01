@@ -18,6 +18,7 @@ public class grep {
 			// once search text found then reset or initialize the parameter
 			if (exist) {
 				// traverse the element from queue for previous context time
+				//Poll Previous Elements
 				while (!queue.isEmpty()) {
 					System.out.println(queue.poll());
 				}
@@ -25,6 +26,7 @@ public class grep {
 			}
 			
 			// once match found then repeat the activity to context times
+			// Print context times.
 			if ((exist || count != 0) && count <= context) {
 				System.out.println(token);
 				count++;

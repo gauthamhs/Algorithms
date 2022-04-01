@@ -3,6 +3,7 @@ package algorithms.datastructures.arrays;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 
 public class DeleteDuplicateFromSortedArray {
@@ -110,6 +111,9 @@ public class DeleteDuplicateFromSortedArray {
 		int lengths = removeElement(nums, val);
 		System.out.println(lengths);
 		
+		System.out.println(deleteDuplicateElementsJava8(List.of(1,2,2,3,3,4,5,5,6,7,7)));
+		
+		
 		}
 	
     public static int removeElement(int[] nums, int val) {
@@ -124,6 +128,10 @@ public class DeleteDuplicateFromSortedArray {
         
         nums = Arrays.copyOfRange(nums, 0, j);
         return nums.length;
+    }
+    
+    public static List<Integer> deleteDuplicateElementsJava8(List<Integer> arrayOfIntegers) {
+    	return arrayOfIntegers.stream().distinct().collect(Collectors.toList());
     }
 	
 	public static String printArray(List<Integer> arrayOfIntegers){

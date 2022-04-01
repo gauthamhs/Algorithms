@@ -6,32 +6,32 @@ public class BoundaryTraversal {
 	
 	void printLeftBoundary(BinaryTreeNode root) {
 		
-		if(root == null) {
+		if(root == null || (root.left==null && root.right==null)) {
 			return;
 		}
+		System.out.print(root.data + " ");
 		
 			if(root.left!=null) {
-				System.out.print(root.data + " ");
 				printLeftBoundary(root.left);
 			} else if(root.right!=null) {
-				System.out.print(root.data + " ");
 				printLeftBoundary(root.right);
 			}
 		}
 	
 	void printRightBoundary(BinaryTreeNode root) {
 		
-		if(root == null) {
+		if(root == null || (root.left==null && root.right==null)) {
 			return;
 		}
 		
 			if(root.right!=null) {
 				printRightBoundary(root.right);
-				System.out.print(root.data + " ");
 			} else if(root.left!=null) {
 				printRightBoundary(root.left);
-				System.out.print(root.data + " ");
 			}
+			
+			System.out.print(root.data + " ");
+
 	}
 	
 	void printLeaves(BinaryTreeNode root) {

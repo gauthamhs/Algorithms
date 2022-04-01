@@ -20,18 +20,21 @@ public class SpreadsheetEncoding {
 		return result;
 	}
 	// A-Z 65-90
+	//For spreadSheet decoding, A starts from 1. That's the reason
+	// we subtract 1 from current value to get the right modulo.
 	public static String spreadsheetDecoding(int decodeValue) {
 		StringBuilder sb = new StringBuilder();
 		int remainder = 0;
+		int div = 0;
 		while(decodeValue>0) {
+			div = (decodeValue-1)/26;
 			remainder = (decodeValue-1)%26;
 			sb.append((char)( 'A' + remainder));
-			decodeValue =(decodeValue-1)/ 26;
+			decodeValue = div;
 			
 		}
 		return sb.reverse().toString();
-	}
-	
+	}	
 	
 	
 	public static void main(String[] args) {
@@ -44,9 +47,10 @@ public class SpreadsheetEncoding {
 		int spreadsheetEncodedValueA0 = spreadsheetEncodingA0(column2);
 		System.out.println(spreadsheetEncodedValueA0);
 		
-		int decodeVal = 702;
+		int decodeVal = 701;
 		String stringVal = spreadsheetDecoding(decodeVal);
 		System.out.println(stringVal);
+		
 	}
 
 }

@@ -6,15 +6,16 @@ public class MatrixUtils {
 	
 	public static int[][] transposeMatrix(int[][] originalMatrix){
 		
+		int rows = originalMatrix.length;
+		int columns = originalMatrix[0].length;
+		int[][] newMatrix = new int[columns][rows];
 		for(int i=0;i<originalMatrix.length;i++) {
-			for(int j=i+1;j<originalMatrix[i].length;j++) {
-				int temp = originalMatrix[i][j];
-				originalMatrix[i][j]=originalMatrix[j][i];
-				originalMatrix[j][i] = temp;
+			for(int j=0;j<originalMatrix[i].length;j++) {
+				newMatrix[j][i] = originalMatrix[i][j];
 			}
 		}
 		
-		return originalMatrix;
+		return newMatrix;
 	}
 	
 	public static int[][] reverseEachRow(int[][] originalMatrix){
@@ -65,8 +66,8 @@ public class MatrixUtils {
 				{10,11,12}
 		};
 		
-		int[][] transposedMatrix = transposeMatrix(originalMatrix);
-		System.out.println(Arrays.deepToString(transposedMatrix));
+		System.out.println(Arrays.deepToString(transposeMatrix(originalMatrix)));
+		System.out.println(Arrays.deepToString(originalMatrix));
 		System.out.println(Arrays.deepToString(reverseEachRow(originalMatrix)));
 		System.out.println(Arrays.deepToString(reverseEachColumn(originalMatrix)));
 	}

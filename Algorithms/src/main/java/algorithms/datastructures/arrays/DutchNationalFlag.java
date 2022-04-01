@@ -1,3 +1,19 @@
+// For the dutch National Flag Algorithm, Here is the logic: 
+// before low, we will have all zeros
+// after high, we will have all twos
+// In between we will have ones
+
+// Three approaches we can take are as follows: 
+// Example: [2,0,2,1,1,0]
+
+// 1) Sort the nums array, This will have time complexity: O(nlogn) for sorting, O(1) for space
+// 2) Count 0, 1, 2 and then order them accordingly, time Complexity: O(2n), space: O(1)
+// 3) One pass Solution, take low, mid and high index, if A[i]=0, swap low and mid, and move both,
+// If A[i]==1, just move mid, If A[i]==2, swap mid and high and then decrease high pointer.
+
+
+
+
 package algorithms.datastructures.arrays;
 
 import java.util.ArrayList;

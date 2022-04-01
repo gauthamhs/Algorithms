@@ -20,15 +20,14 @@ public class PathSum {
             return;
         }
         
-        sum = sum - root.data;
         partialList.add(root.data);
         
-        if(sum==0 && root.left==null && root.right==null){
+        if(sum==root.data && root.left==null && root.right==null){
             sumList.add(new ArrayList<>(partialList));
         }
         
-        pathSumHelper(root.left, sum, sumList, partialList);
-        pathSumHelper(root.right, sum, sumList, partialList);
+        pathSumHelper(root.left, sum-root.data, sumList, partialList);
+        pathSumHelper(root.right, sum-root.data, sumList, partialList);
         
         partialList.remove(partialList.size()-1);
     }

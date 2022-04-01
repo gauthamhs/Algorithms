@@ -18,7 +18,7 @@ public class IdenticalTrees {
 			return true;
 		}
 		
-		return (isSubTree(mainTree.left, subTree.left) || isSubTree(mainTree.right, subTree.right));
+		return (isSubTree(mainTree.left, subTree) || isSubTree(mainTree.right, subTree));
 		
 	}
 	boolean areTreesIdentical(BinaryTreeNode root1, BinaryTreeNode root2) {

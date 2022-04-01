@@ -23,13 +23,7 @@ public class BinaryTreeHeight {
 		left = binaryTreeHeight(root.left);
 		right = binaryTreeHeight(root.right);
 		
-		if(left>right) {
-			height = 1 + left;
-		} else{
-			height = 1 + right;
-		}
-		
-		return height;
+		return 1+Math.max(left, right);
 	}
 	
 	public static void main(String[] args) {

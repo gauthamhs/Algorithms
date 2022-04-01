@@ -4,6 +4,32 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+/*For Array Rotations, We have to keep in mind the following things: 
+	
+	How many layers are there
+	How many transformations we have to do per layer
+	
+	If we consider a 4*4 or 5*5 matrix, the no of layers = 2. We have an outermost and an innermost layer
+	
+	Lets use this as example: 
+	
+	A = [ 1   2   3   4           A = [ 13  9  5  1
+	      5   6   7   8                 14  10 6  2
+	      9  10  11  12    -->          15  11 7  3
+	      13 14  15  16]                16  12 8  4]
+	      
+	      In the first layer, we do 3 transformations 1,2,3 etc
+	      In the second layer, we do just one
+	      
+	      Algorithm: 
+	      Find the layers for the array
+	      Find the transformations for each layer
+	      Use first layer, 2nd transformation(2) as example
+	      Calculate, i' and j' which is n-i and n-j. Where n is matrix.size - 1
+	      See what the values correspond to.
+	*
+	*/
+
 public class ArrayRotation {
 	
 	public static List<Integer> rightRotatedArray(List<Integer> integerArray, int rotateBy){

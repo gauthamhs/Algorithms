@@ -48,18 +48,18 @@ public class TopologicalSorting2 {
 		for(String key : zeroDegreeMap.keySet()) {
 			if(zeroDegreeMap.get(key)==0) {
 				queue.add(key);
-				result.add(key);
 			}
 		}
 		
 		while(!queue.isEmpty()) {
 			String node = queue.remove();
+			result.add(node);
+			
 			List<String> neighbors = adjacencyList.get(node);
 			for(String neighbor : neighbors) {
 				zeroDegreeMap.put(neighbor, zeroDegreeMap.get(neighbor)-1);
 				if(zeroDegreeMap.get(neighbor)==0) {
 					queue.add(neighbor);
-					result.add(neighbor);
 				}
 			}
 		}

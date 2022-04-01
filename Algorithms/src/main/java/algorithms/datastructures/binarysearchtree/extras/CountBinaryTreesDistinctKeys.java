@@ -17,7 +17,7 @@ public class CountBinaryTreesDistinctKeys {
 		
 		for(i=2;i<=key;i++) {
 			for(int j=0;j<i;j++) {
-				binaryTreeCount.set(i,  (binaryTreeCount.get(j) * binaryTreeCount.get(i-j-1)));
+				binaryTreeCount.set(i,  binaryTreeCount.get(i) + (binaryTreeCount.get(j) * binaryTreeCount.get(i-j-1)));
 			}
 		}
 		

@@ -52,6 +52,9 @@ public class MedianOfTwoSortedArrays {
 		int val1 = (i1<sortedArray1.length) ? sortedArray1[i1] : Integer.MAX_VALUE;
 		int val2 = (i2<sortedArray2.length) ? sortedArray2[i2] : Integer.MAX_VALUE; 
 		
+		
+		// IfA(k/2 - 1)<B(k/2-1), Then we can get rid of first k/2-1 values of A. 
+		// That's the reason we move A index position to + medianIndex/2 while reducing search to medianIndex/2;
 		if(val1<val2) {
 			return findMedian(sortedArray1, sortedArray2, s1 + medianIndex/2, s2, medianIndex - medianIndex/2);
 			// Traverse the first Array and move the startIndex to medianindex/2 and reduce the search to medianIndex/2

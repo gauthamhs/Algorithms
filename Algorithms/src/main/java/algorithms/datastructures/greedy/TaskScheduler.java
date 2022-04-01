@@ -2,10 +2,15 @@ package algorithms.datastructures.greedy;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.PriorityQueue;
+import java.util.function.Function;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
+import java.util.stream.Stream;
 
 /*In this algorithm, we are given a set of tasks that need to run and a cooldown period
 For example, If we are given tasks as {A,A,A,B,B,B} and n(cooldown period) =2, 
@@ -24,13 +29,18 @@ public class TaskScheduler {
         }
         
      // Count the total occurrence of individual tasks so that we can add it to max heap
-        Map<Character, Integer> charMap = new HashMap<>();
-        for(char c : tasks) {
-        	charMap.put(c, charMap.getOrDefault(c, 0)+1);
-        }
+//        Map<Character, Integer> charMap = new HashMap<>();
+//        for(char c : tasks) {
+//        	charMap.put(c, charMap.getOrDefault(c, 0)+1);
         
+ 
+//        }
+        
+        Map<Character, Long> charMap =  IntStream.range(0, tasks.length).mapToObj(i-> tasks[i]).collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
+                
      // Get the task with the largest occurrence for greedy pickings
-        PriorityQueue<Character> maxHeap = new PriorityQueue<>((a,b)->charMap.get(b) - charMap.get(a));
+        Comparator<Character> cmp = (a,b)->Long.compare(charMap.get(b), charMap.get(a));
+		PriorityQueue<Character> maxHeap = new PriorityQueue<>(cmp);
         maxHeap.addAll(charMap.keySet());
         
         int totalCycles = 0;

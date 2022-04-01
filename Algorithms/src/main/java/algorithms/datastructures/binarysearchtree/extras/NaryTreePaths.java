@@ -44,13 +44,14 @@ public class NaryTreePaths {
 		
 		if(startNode.equals(targetNode)) {
 			result.add(new ArrayList<>(tempList));
-			return;
+		}else {
+			for(Node child : startNode.children) {
+				NaryTreePathHelper(child, targetNode, result, tempList);
+			}
 		}
 		
-		for(Node child : startNode.children) {
-			NaryTreePathHelper(child, targetNode, result, tempList);
-			tempList.remove(tempList.size()-1);
-		}
+
+		tempList.remove(tempList.size()-1);
 		
 		
 		

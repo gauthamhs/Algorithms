@@ -33,6 +33,22 @@ public class PrintNodesWithKLeaves {
 		
 	}
 	
+	void printKLeaves(BinaryTreeNode root, int k) {
+		if(root==null) {
+			return;
+		}
+		
+		if(k==0 && root.left==null && root.right==null) {
+			System.out.println(root.data + " ");
+		}
+		
+		printKLeaves(root.left, k-1);
+		printKLeaves(root.right, k-1);
+
+		
+		
+	}
+	
 	public static void main(String[] args) {
 		int k = 3;
 		PrintNodesWithKLeaves kLeaves = new PrintNodesWithKLeaves();
@@ -47,6 +63,7 @@ public class PrintNodesWithKLeaves {
 		kLeaves.root.left.left.right = new BinaryTreeNode(9);
 		kLeaves.root.left.left.left.left = new BinaryTreeNode(10);
 		kLeaves.printNodesWithKLeaves(kLeaves.root, k);
+		kLeaves.printKLeaves(kLeaves.root, k);
 		
 		
 	}

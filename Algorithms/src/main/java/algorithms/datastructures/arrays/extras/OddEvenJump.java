@@ -6,8 +6,10 @@ import java.util.TreeMap;
 
 /*In this problem, we need to identify the total number of jumps possible in order to each end of Array. 
 There are two types of jumps: Odd numbered jumps and even numbered jumps
-We start with odd jumps and alternate later on. In this method, we use ceilingEntry for odd jumps because that gives us the smallest key that is greater than current key
+We start with odd jumps(1st jump) and alternate later on. In this method, we use ceilingEntry for odd jumps because that gives us the smallest key that is greater than current key
 and floorEntry that gives us the largest key that is lesser than current key
+// Note that if our first jump is odd, second jump has to be even. So in each iteration, we determine
+ * if there was an odd/even jump and alternate respectively.
 
 Time Complexity: O(nLogn)
 Space Complexity: O(n)

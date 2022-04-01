@@ -117,6 +117,8 @@ public class MaximumSumSubarrayKadane {
 		//integerArray.add(2);
 		System.out.println(integerArray);
 		
+		integerArray = new ArrayList<>(Arrays.asList(-2,1));
+		
 		Elements elements = getMaximumSumSubArray(integerArray);
 		System.out.println(elements.getMaximumSum());
 		System.out.println(elements.getSubarray());

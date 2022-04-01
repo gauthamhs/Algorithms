@@ -53,7 +53,7 @@ public static int[] sortedSquaresStack(int[] A) {
 }
 	
 	public static void main(String[] args) {
-		int[] array = {-7,-3,2,3,11};
+		int[] array = {-9,-6,5,12,14};
 		int[] squaredArray = sortedSquares(array);
 		System.out.println(Arrays.toString(squaredArray));
 		System.out.println(Arrays.toString(sortedSquaresStack(array)));

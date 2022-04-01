@@ -1,7 +1,9 @@
 package algorithms.datastructures.binarysearchtree.extras;
 
 import java.util.ArrayDeque;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.Deque;
 import java.util.HashSet;
 import java.util.List;
@@ -66,6 +68,37 @@ public class PostOrderTraversal {
 		System.out.print(root.data + " ");
 		
 	}
+	
+    public List<Integer> postorderTraversal(BinaryTreeNode root) {
+        
+        if(root==null){
+            return Collections.emptyList();
+        }
+        
+        List<Integer> result = new ArrayList<>();
+        postOrderHelper(root, result);
+        Collections.reverse(result);
+        return result;
+}
+ 
+    public void postOrderHelper(BinaryTreeNode root, List<Integer> result){
+        
+        Deque<BinaryTreeNode> stack = new ArrayDeque<>();
+        while(root!=null || !stack.isEmpty()){
+            
+            while(root!=null){
+                result.add(root.data);
+                stack.addFirst(root);
+                root = root.right;
+            }
+            
+            root = stack.removeFirst();
+            root = root.left;
+            
+            
+        }
+        
+    }
 	
 	public static void main(String[] args) {
 		

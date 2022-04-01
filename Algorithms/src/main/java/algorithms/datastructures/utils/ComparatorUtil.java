@@ -28,8 +28,8 @@ public class ComparatorUtil {
 	
 	public static void main(String[] args) {
 		List<Character> charList = new ArrayList<>();
-		charList.add('C');
 		charList.add('A');
+		charList.add('C');
 		//charList.add('B');
 		
 		System.out.println(charList);

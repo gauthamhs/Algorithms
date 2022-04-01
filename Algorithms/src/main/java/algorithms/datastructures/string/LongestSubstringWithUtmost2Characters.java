@@ -49,7 +49,7 @@ public class LongestSubstringWithUtmost2Characters {
 	
 	public static void main(String[] args) {
 		
-		String sequence = "freeeeeereeeeends";
+		String sequence = "freeeeeereeeeennnnnnnnnnnnnnnnnds";
 		int longestSubStringLength = lengthOfLongestSubstringTwoDistinct(sequence);
 		System.out.println(longestSubStringLength);
 		

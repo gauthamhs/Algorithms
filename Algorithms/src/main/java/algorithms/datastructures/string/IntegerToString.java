@@ -30,9 +30,7 @@ public class IntegerToString {
 		int intValue = val.substring((sign==-1) ? 1: 0).chars().reduce(0, (runningSum, c)->runningSum*10 + c - '0');
 		
 		int result = sign*intValue;
-		
 		return result;
-		
 	}
 
 	

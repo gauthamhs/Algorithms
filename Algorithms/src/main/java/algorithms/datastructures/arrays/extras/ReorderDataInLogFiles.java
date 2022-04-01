@@ -38,6 +38,10 @@ public class ReorderDataInLogFiles {
 			 * -1 
 			 * 4) If both are letters, check if they are same.a If both are same, sort by
 			 * identifier, if not sort by letters
+			 * 
+			 * Note: in comparator, if there is a and b, if a and b has to come in correct order we return 1
+			 * For reverse order, we return -1. 
+			 * In other words, -1 is original order, 1 is reverse order.
 			 */
 			
 			if(!isDigit1&&!isDigit2) {

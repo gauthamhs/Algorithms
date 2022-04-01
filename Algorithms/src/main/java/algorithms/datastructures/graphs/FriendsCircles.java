@@ -1,5 +1,9 @@
 	package algorithms.datastructures.graphs;
 
+	
+//	Algorithm: Iterate through all provinces that are not visited.
+//	           DFS through each city if unvisited, mark them as visited, and see if this city is connected to rest of the cities
+//	           if the rest of cities are not visited, and are connected, dfs through those cities to find all connections
 public class FriendsCircles {
 	
 	static int dfs(int[][] M, int i) {

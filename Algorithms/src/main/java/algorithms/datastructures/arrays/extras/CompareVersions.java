@@ -21,7 +21,7 @@ public class CompareVersions {
 			s2 = padZeros(s2,n1-n2);
 		}
 		
-		for(int i=0;i<s1.size();i++) {
+		for(int i=0;i<Math.max(n1, n2);i++) {
 			int compare = helper(s1.get(i),s2.get(i));
 			if(compare!=0) {
 				return compare;
